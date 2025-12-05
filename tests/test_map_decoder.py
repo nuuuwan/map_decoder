@@ -52,19 +52,18 @@ class TestCase(unittest.TestCase):
             os.path.join("tests", "output", "test_decode_info_list.png")
         )
 
-        self.assertEqual(len(info_list), 654 * 455)
+        self.assertEqual(len(info_list), 34_003)
         first_info = info_list[0]
         print(first_info)
         self.assertEqual(
             first_info,
             {
-                "latlng": (10.089629, 79.163467),
-                "xy": (0, 0),
-                "color": (64, 64, 64),
+                "latlng": (6.111115, 79.163467),
+                "xy": (0, 579),
+                "color": (96, 96, 128),
             },
         )
         print(most_common_colors)
         self.assertEqual(
-            most_common_colors,
-            {(240, 240, 240): 0.6483, (224, 224, 224): 0.0602},
+            most_common_colors, {(0, 160, 80): 0.0986, (0, 160, 64): 0.0582}
         )

@@ -1,3 +1,4 @@
+import colorsys
 import tempfile
 
 import matplotlib.pyplot as plt
@@ -19,11 +20,16 @@ class MapDecoder:
         self.pil_image = pil_image
 
     @staticmethod
+    def quantize_color_array(
+        color_array: np.ndarray, q: int = 16
+    ) -> np.ndarray:
+        return np.int16(color_array / q) * q
+
+    @staticmethod
     def get_color_matrix(pil_image) -> np.ndarray:
-        Q = 16
         image_rgb = pil_image.convert("RGB")
         color_array = np.array(image_rgb, dtype=np.float32)
-        color_array = np.int16(color_array / Q) * Q
+        color_array = MapDecoder.quantize_color_array(color_array)
         color_matrix = color_array / 255.0
         return color_matrix
 
@@ -90,6 +96,7 @@ class MapDecoder:
         pil_image: Image.Image,
         reference_list: list[dict],
         valid_color_list: list[tuple],
+        min_saturation: float = 0.2,
     ) -> list[dict]:
         color_matrix = MapDecoder.get_color_matrix(pil_image)
         info_list = []
@@ -101,6 +108,15 @@ class MapDecoder:
                 color = tuple((color_matrix[y, x] * 255).astype(int))
                 if valid_color_list and color not in valid_color_list:
                     continue
+
+                # Filter by saturation
+                r, g, b = color
+                _, saturation, _ = colorsys.rgb_to_hsv(
+                    r / 255.0, g / 255.0, b / 255.0
+                )
+                if saturation < min_saturation:
+                    continue
+
                 lat = round(y * m_lat + c_lat, 6)
                 lng = round(x * m_lng + c_lng, 6)
                 info_list.append(
@@ -169,10 +185,13 @@ class MapDecoder:
         return Image.open(temp_image_path)
 
     def decode(
-        self, reference_list: list[dict], valid_color_list: list[tuple]
+        self,
+        reference_list: list[dict],
+        valid_color_list: list[tuple],
+        min_saturation: float = 0.1,
     ) -> Image.Image:
         info_list = MapDecoder.get_latlng_color_info_list(
-            self.pil_image, reference_list, valid_color_list
+            self.pil_image, reference_list, valid_color_list, min_saturation
         )
         image_info_list = MapDecoder.generate_info_list_image(info_list)
         image_inspection = MapDecoder.generate_inspection_image(
