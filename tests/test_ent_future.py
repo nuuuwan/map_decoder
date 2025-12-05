@@ -7,6 +7,22 @@ from gig_future import EntFuture
 
 class TestCase(unittest.TestCase):
     def test_from_latlng(self):
+
+        for latlng, expected_ent_id in [
+            (
+                (
+                    6.915706285411007,
+                    79.86352777692407,
+                ),  # Town Hall, Colombo,
+                "LK-1",  # Central Province
+            ),
+        ]:
+            observed_ent = EntFuture.from_latlng(
+                latlng=latlng,
+                region_ent_type=EntType.from_id(expected_ent_id),
+            )
+            self.assertEqual(observed_ent.id, expected_ent_id)
+
         ent = EntFuture.from_latlng(
             latlng=(
                 6.915706285411007,
