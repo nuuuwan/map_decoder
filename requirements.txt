@@ -6,3 +6,4 @@ matplotlib
 Pillow
 shapely
 tqdm
+scikit-learn
