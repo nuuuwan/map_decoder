@@ -7,8 +7,6 @@ from PIL import Image, ImageDraw, ImageFont
 from sklearn.cluster import KMeans
 from utils import Log
 
-from gig_future import EntFuture
-
 log = Log("MapDecoder")
 
 
@@ -82,6 +80,11 @@ class MapDecoder:
         color_array = MapDecoder.cluster_colors(
             color_array=color_array,
             n_clusters=n_clusters,
+        )
+        color_array = MapDecoder.replace_low_saturation_colors(
+            color_array=color_array,
+            min_saturation=min_saturation,
+            color_background=color_background,
         )
         color_matrix = color_array / 255.0
         return color_matrix
@@ -165,9 +168,12 @@ class MapDecoder:
                 reference_list=reference_list
             )
         )
-        for x in range(color_matrix.shape[1]):
-            for y in range(color_matrix.shape[0]):
-                color = tuple((color_matrix[y, x] * 255).astype(int))
+        step = 1
+        for x in range(0, color_matrix.shape[1], step):
+            for y in range(0, color_matrix.shape[0], step):
+                color = tuple(
+                    int(c) for c in (color_matrix[y, x] * 255).astype(int)
+                )
                 if color == color_background:
                     continue
                 if valid_color_list and color not in valid_color_list:
@@ -177,17 +183,17 @@ class MapDecoder:
                 lng = round(x * m_lng + c_lng, 6)
                 latlng = (lat, lng)
 
-                idx_regions = EntFuture.idx_regions_from_latlng(latlng)
-                district_id = idx_regions.get(EntType.DISTRICT.name)
-                if not district_id:
-                    continue
+                # idx_regions = EntFuture.idx_regions_from_latlng(latlng)
+                # ent_district = idx_regions.get(EntType.DISTRICT.name)
+                # if not ent_district:
+                #     continue
 
                 info_list.append(
                     dict(
                         latlng=latlng,
                         xy=(x, y),
                         color=color,
-                        district_id=district_id,
+                        # district_id=ent_district.id,
                     )
                 )
         return info_list
