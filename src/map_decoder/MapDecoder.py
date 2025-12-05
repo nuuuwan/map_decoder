@@ -149,7 +149,9 @@ class MapDecoder:
         )
 
         for x in range(0, color_matrix.shape[1], step):
+            print(f"\t\t{x}/{color_matrix.shape[1]}", end="\r")
             for y in range(0, color_matrix.shape[0], step):
+
                 color = tuple(
                     int(c) for c in (color_matrix[y, x] * 255).astype(int)
                 )

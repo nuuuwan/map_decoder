@@ -1,5 +1,6 @@
 from gig import Ent, EntType
 from shapely.geometry import Point
+from utils import LatLng
 
 
 class EntFuture(Ent):
@@ -13,9 +14,13 @@ class EntFuture(Ent):
     ) -> str:
         ents = Ent.list_from_type(region_ent_type)
         candidate_ents = [ent for ent in ents if parent_ent_id in ent.id]
+        sorted_candidate_ents = sorted(
+            candidate_ents,
+            key=lambda ent: LatLng(*latlng).distance(LatLng(*ent.centroid)),
+        )
         lat, lng = latlng
         point = Point(lng, lat)
-        for ent in candidate_ents:
+        for ent in sorted_candidate_ents:
             geo = ent.geo()
             if geo.geometry.contains(point).any():
                 return ent
