@@ -61,6 +61,10 @@ class TestCase(unittest.TestCase):
                 box_size_lat=0.1,
                 map_ent_type=EntType.DSD,
                 title="Elephant Corridors in Sri Lanka",
+                color_to_label={
+                    (81, 174, 200): "Temporary Corridors",
+                    (20, 167, 85): "Permanent Corridors and Parks",
+                },
             )
         )
 
@@ -81,10 +85,11 @@ class TestCase(unittest.TestCase):
         self.assertEqual(
             first_info,
             {
-                "latlng": (8.550446, 79.943227),
                 "xy": (112, 224),
-                "color": (20, 167, 85),
+                "latlng": (8.550446, 79.943227),
                 "ent_id": "LK-6206",
+                "label": "Permanent Corridors and Parks",
+                "color": (20, 167, 85),
             },
         )
         print(most_common_colors)

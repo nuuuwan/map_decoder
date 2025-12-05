@@ -159,6 +159,7 @@ class MapDecoder:
         color_background: tuple[int, int, int],
         box_size_lat: int,
         map_ent_type: EntType,
+        color_to_label: dict[tuple, str] = None,
     ) -> list[dict]:
         color_matrix = MapDecoder.get_color_matrix(
             pil_image=pil_image,
@@ -197,12 +198,18 @@ class MapDecoder:
                 if not ent:
                     continue
 
+                label = color_to_label.get(color)
+                if not label:
+                    log.error(f"Label not found for color: {color}")
+                    continue
+
                 info_list.append(
                     dict(
-                        latlng=latlng,
                         xy=(x, y),
-                        color=color,
+                        latlng=latlng,
                         ent_id=ent.id,
+                        label=label,
+                        color=color,
                     )
                 )
         return info_list
@@ -239,6 +246,7 @@ class MapDecoder:
         box_size_lat: int,
         map_ent_type: EntType,
         title: str,
+        color_to_label: dict[tuple, str],
     ) -> Image.Image:
         plt.close()
         lats = [info["latlng"][0] for info in info_list]
@@ -270,6 +278,23 @@ class MapDecoder:
             s=10 / box_size_lat,
             marker="s",
         )
+
+        for color, label in color_to_label.items():
+            ax.scatter(
+                [],
+                [],
+                c=[
+                    (
+                        color[0] / 255,
+                        color[1] / 255,
+                        color[2] / 255,
+                    )
+                ],
+                label=label,
+                marker="s",
+            )
+        ax.legend(loc="upper right", fontsize="small", markerscale=2)
+
         plt.title(title)
 
         temp_image_path = tempfile.NamedTemporaryFile(
@@ -291,6 +316,7 @@ class MapDecoder:
         box_size_lat: int,
         map_ent_type: EntType,
         title: str,
+        color_to_label: dict[tuple, str] = None,
     ) -> Image.Image:
         info_list = MapDecoder.get_latlng_color_info_list(
             pil_image=self.pil_image,
@@ -301,6 +327,7 @@ class MapDecoder:
             color_background=color_background,
             box_size_lat=box_size_lat,
             map_ent_type=map_ent_type,
+            color_to_label=color_to_label,
         )
         image_info_list = MapDecoder.generate_info_list_image(
             info_list=info_list,
@@ -308,6 +335,7 @@ class MapDecoder:
             box_size_lat=box_size_lat,
             map_ent_type=map_ent_type,
             title=title,
+            color_to_label=color_to_label,
         )
         image_inspection = MapDecoder.generate_inspection_image(
             pil_image=self.pil_image,
