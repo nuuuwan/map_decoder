@@ -153,8 +153,13 @@ class MapDecoderDrawMixin:
         }
 
         ents = Ent.list_from_type(map_ent_type)
+        total_population = 0
+        coloured_population = 0
         for ent in ents:
+            population = ent.population
+            total_population += population
             if ent.id in ent_to_label_to_n:
+                coloured_population += population
                 label_to_n = ent_to_label_to_n[ent.id]
                 max_label = sorted(
                     label_to_n.items(),
@@ -178,6 +183,22 @@ class MapDecoderDrawMixin:
 
         MapDecoderDrawMixin.format_axes(ax)
         plt.title(title)
+
+        p_coloured = coloured_population / total_population
+        n = len(ent_to_label_to_n)
+        annotation_text = (
+            f"{n} {map_ent_type.name}s,"
+            + f" corresponding to {p_coloured:.1%}% of population"
+        )
+        ax.annotate(
+            annotation_text,
+            xy=(0.5, 0.98),
+            xycoords="axes fraction",
+            va="center",
+            ha="center",
+            fontsize="small",
+        )
+
         temp_image_path = tempfile.NamedTemporaryFile(
             suffix=".png", delete=False
         ).name
