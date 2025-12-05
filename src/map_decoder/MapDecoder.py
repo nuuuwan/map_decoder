@@ -148,7 +148,8 @@ class MapDecoder:
         info_list = []
         step = 3
         for x in range(0, color_matrix.shape[1], step):
-            print(f"\t\t{x}/{color_matrix.shape[1]}", end="\r")
+            p = x / color_matrix.shape[1]
+            log.debug(f"{p:.2%}")
             for y in range(0, color_matrix.shape[0], step):
 
                 color = tuple(
@@ -173,16 +174,15 @@ class MapDecoder:
                 if not label:
                     log.error(f"Label not found for color: {color}")
                     continue
-
-                info_list.append(
-                    dict(
-                        xy=(x, y),
-                        latlng=latlng,
-                        ent_id=ent.id,
-                        label=label,
-                        color=color,
-                    )
+                info = dict(
+                    xy=(x, y),
+                    latlng=latlng,
+                    ent_id=ent.id,
+                    label=label,
+                    color=color,
                 )
+                log.debug(info)
+                info_list.append(info)
         return info_list
 
     @staticmethod
