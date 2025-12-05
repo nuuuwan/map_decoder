@@ -68,7 +68,7 @@ def main():
         color_reference_point=(255, 0, 0),
         color_map_boundaries=(0, 0, 0),
         color_background=(255, 255, 255),
-        box_size_lat=0.05,
+        box_size_lat=0.01,
         map_ent_type=EntType.GND,
         title="Elephant Corridors in Sri Lanka",
         color_to_label={

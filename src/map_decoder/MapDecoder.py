@@ -78,6 +78,7 @@ class MapDecoder(
             color_to_label=color_to_label,
             map_ent_type=map_ent_type,
             title=title,
+            color_map_boundaries=color_map_boundaries,
         )
 
         return (

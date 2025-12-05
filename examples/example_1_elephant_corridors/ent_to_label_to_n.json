@@ -1,58 +1,1149 @@
 {
-  "LK-62": {
-    "Permanent Corridors and Parks": 20,
-    "Temporary Corridors": 17
+  "LK-6206005": {
+    "Permanent Corridors and Parks": 3,
+    "Temporary Corridors": 1
   },
-  "LK-42": {
-    "Temporary Corridors": 18,
-    "Permanent Corridors and Parks": 3
-  },
-  "LK-71": {
-    "Permanent Corridors and Parks": 42,
-    "Temporary Corridors": 54
-  },
-  "LK-45": {
-    "Temporary Corridors": 10
-  },
-  "LK-44": {
-    "Temporary Corridors": 35
-  },
-  "LK-43": {
-    "Temporary Corridors": 19
-  },
-  "LK-91": {
-    "Temporary Corridors": 24
-  },
-  "LK-22": {
-    "Temporary Corridors": 10,
-    "Permanent Corridors and Parks": 10
-  },
-  "LK-33": {
-    "Temporary Corridors": 26,
-    "Permanent Corridors and Parks": 16
-  },
-  "LK-72": {
-    "Permanent Corridors and Parks": 22,
-    "Temporary Corridors": 29
-  },
-  "LK-82": {
-    "Temporary Corridors": 21,
-    "Permanent Corridors and Parks": 95
-  },
-  "LK-53": {
-    "Temporary Corridors": 2,
+  "LK-6206015": {
     "Permanent Corridors and Parks": 2
   },
-  "LK-52": {
-    "Temporary Corridors": 27,
-    "Permanent Corridors and Parks": 43
+  "LK-6206010": {
+    "Permanent Corridors and Parks": 12,
+    "Temporary Corridors": 1
   },
-  "LK-81": {
-    "Permanent Corridors and Parks": 15,
+  "LK-6209005": {
+    "Permanent Corridors and Parks": 2,
+    "Temporary Corridors": 1
+  },
+  "LK-4203215": {
+    "Temporary Corridors": 1
+  },
+  "LK-4212125": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-4215085": {
+    "Temporary Corridors": 1,
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-7139045": {
+    "Permanent Corridors and Parks": 5,
+    "Temporary Corridors": 1
+  },
+  "LK-6209090": {
     "Temporary Corridors": 2
   },
-  "LK-51": {
-    "Temporary Corridors": 4,
+  "LK-6209125": {
+    "Temporary Corridors": 1
+  },
+  "LK-6224030": {
+    "Temporary Corridors": 1
+  },
+  "LK-6224090": {
+    "Temporary Corridors": 1
+  },
+  "LK-6224165": {
+    "Temporary Corridors": 1
+  },
+  "LK-4203245": {
+    "Temporary Corridors": 1
+  },
+  "LK-4212145": {
+    "Temporary Corridors": 1
+  },
+  "LK-7139005": {
     "Permanent Corridors and Parks": 4
+  },
+  "LK-7139050": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7139105": {
+    "Permanent Corridors and Parks": 4
+  },
+  "LK-6209010": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-6209050": {
+    "Temporary Corridors": 1
+  },
+  "LK-6209085": {
+    "Temporary Corridors": 1
+  },
+  "LK-6209120": {
+    "Temporary Corridors": 1
+  },
+  "LK-6212040": {
+    "Temporary Corridors": 1
+  },
+  "LK-6224035": {
+    "Temporary Corridors": 1
+  },
+  "LK-6224080": {
+    "Temporary Corridors": 1
+  },
+  "LK-4206100": {
+    "Temporary Corridors": 4
+  },
+  "LK-7112045": {
+    "Permanent Corridors and Parks": 4,
+    "Temporary Corridors": 1
+  },
+  "LK-7139010": {
+    "Permanent Corridors and Parks": 3,
+    "Temporary Corridors": 1
+  },
+  "LK-6209035": {
+    "Temporary Corridors": 1
+  },
+  "LK-6209055": {
+    "Temporary Corridors": 1
+  },
+  "LK-4209055": {
+    "Temporary Corridors": 4
+  },
+  "LK-7112040": {
+    "Permanent Corridors and Parks": 3
+  },
+  "LK-4512085": {
+    "Temporary Corridors": 2
+  },
+  "LK-4512025": {
+    "Temporary Corridors": 4
+  },
+  "LK-4512080": {
+    "Temporary Corridors": 1
+  },
+  "LK-4209085": {
+    "Temporary Corridors": 1
+  },
+  "LK-4209080": {
+    "Temporary Corridors": 1
+  },
+  "LK-7112020": {
+    "Temporary Corridors": 2,
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7112050": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7112085": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-4403015": {
+    "Temporary Corridors": 2
+  },
+  "LK-4406025": {
+    "Temporary Corridors": 2
+  },
+  "LK-4209005": {
+    "Temporary Corridors": 2
+  },
+  "LK-4312015": {
+    "Temporary Corridors": 2
+  },
+  "LK-7112005": {
+    "Temporary Corridors": 1
+  },
+  "LK-7112030": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7112080": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-4403065": {
+    "Temporary Corridors": 1
+  },
+  "LK-4403080": {
+    "Temporary Corridors": 1
+  },
+  "LK-4406020": {
+    "Temporary Corridors": 2
+  },
+  "LK-4209010": {
+    "Temporary Corridors": 1
+  },
+  "LK-4209045": {
+    "Temporary Corridors": 1
+  },
+  "LK-4312010": {
+    "Temporary Corridors": 1
+  },
+  "LK-4312025": {
+    "Temporary Corridors": 1
+  },
+  "LK-4312005": {
+    "Temporary Corridors": 1
+  },
+  "LK-7112070": {
+    "Temporary Corridors": 2
+  },
+  "LK-7112075": {
+    "Temporary Corridors": 1
+  },
+  "LK-4403060": {
+    "Temporary Corridors": 2
+  },
+  "LK-4403030": {
+    "Temporary Corridors": 1
+  },
+  "LK-4403070": {
+    "Temporary Corridors": 1
+  },
+  "LK-4403095": {
+    "Temporary Corridors": 1
+  },
+  "LK-4406040": {
+    "Temporary Corridors": 1
+  },
+  "LK-7115005": {
+    "Temporary Corridors": 1
+  },
+  "LK-7115035": {
+    "Temporary Corridors": 1
+  },
+  "LK-4509005": {
+    "Temporary Corridors": 1
+  },
+  "LK-4412090": {
+    "Temporary Corridors": 3
+  },
+  "LK-4406030": {
+    "Temporary Corridors": 1
+  },
+  "LK-7109130": {
+    "Temporary Corridors": 1
+  },
+  "LK-7115010": {
+    "Temporary Corridors": 1
+  },
+  "LK-7115025": {
+    "Temporary Corridors": 1
+  },
+  "LK-4412130": {
+    "Temporary Corridors": 2
+  },
+  "LK-7109125": {
+    "Temporary Corridors": 1
+  },
+  "LK-4509090": {
+    "Temporary Corridors": 1
+  },
+  "LK-4412005": {
+    "Temporary Corridors": 3
+  },
+  "LK-7109055": {
+    "Temporary Corridors": 1
+  },
+  "LK-7109115": {
+    "Temporary Corridors": 1
+  },
+  "LK-4506010": {
+    "Temporary Corridors": 1
+  },
+  "LK-4409095": {
+    "Temporary Corridors": 2
+  },
+  "LK-4412045": {
+    "Temporary Corridors": 4
+  },
+  "LK-4412070": {
+    "Temporary Corridors": 1
+  },
+  "LK-4412115": {
+    "Temporary Corridors": 1
+  },
+  "LK-7109045": {
+    "Temporary Corridors": 1
+  },
+  "LK-7109070": {
+    "Temporary Corridors": 1
+  },
+  "LK-4409060": {
+    "Temporary Corridors": 1
+  },
+  "LK-4409090": {
+    "Temporary Corridors": 1
+  },
+  "LK-4303070": {
+    "Temporary Corridors": 2
+  },
+  "LK-4303080": {
+    "Temporary Corridors": 1
+  },
+  "LK-4309020": {
+    "Temporary Corridors": 1
+  },
+  "LK-4309030": {
+    "Temporary Corridors": 1
+  },
+  "LK-4306080": {
+    "Temporary Corridors": 1
+  },
+  "LK-7109020": {
+    "Temporary Corridors": 2
+  },
+  "LK-7109035": {
+    "Temporary Corridors": 1
+  },
+  "LK-4409075": {
+    "Temporary Corridors": 1
+  },
+  "LK-4303050": {
+    "Temporary Corridors": 2
+  },
+  "LK-4303040": {
+    "Temporary Corridors": 1
+  },
+  "LK-4303065": {
+    "Temporary Corridors": 2
+  },
+  "LK-4309045": {
+    "Temporary Corridors": 1
+  },
+  "LK-4309050": {
+    "Temporary Corridors": 1
+  },
+  "LK-4306085": {
+    "Temporary Corridors": 1
+  },
+  "LK-7106055": {
+    "Temporary Corridors": 3
+  },
+  "LK-7109025": {
+    "Temporary Corridors": 2
+  },
+  "LK-7154070": {
+    "Temporary Corridors": 1
+  },
+  "LK-4409080": {
+    "Temporary Corridors": 1
+  },
+  "LK-7106010": {
+    "Temporary Corridors": 2
+  },
+  "LK-7106005": {
+    "Temporary Corridors": 2,
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7118070": {
+    "Temporary Corridors": 1
+  },
+  "LK-7118055": {
+    "Temporary Corridors": 1
+  },
+  "LK-7154065": {
+    "Temporary Corridors": 1
+  },
+  "LK-9142185": {
+    "Temporary Corridors": 1
+  },
+  "LK-9151050": {
+    "Temporary Corridors": 1
+  },
+  "LK-9151095": {
+    "Temporary Corridors": 1
+  },
+  "LK-7106095": {
+    "Temporary Corridors": 1
+  },
+  "LK-7106120": {
+    "Temporary Corridors": 1
+  },
+  "LK-7106130": {
+    "Temporary Corridors": 1
+  },
+  "LK-7121025": {
+    "Temporary Corridors": 1
+  },
+  "LK-7121035": {
+    "Temporary Corridors": 1
+  },
+  "LK-7157025": {
+    "Temporary Corridors": 1
+  },
+  "LK-7157060": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-2209020": {
+    "Temporary Corridors": 1
+  },
+  "LK-2209110": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-2209235": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-9145115": {
+    "Temporary Corridors": 1
+  },
+  "LK-9142210": {
+    "Temporary Corridors": 1
+  },
+  "LK-9151040": {
+    "Temporary Corridors": 1
+  },
+  "LK-9151090": {
+    "Temporary Corridors": 1
+  },
+  "LK-9151145": {
+    "Temporary Corridors": 1
+  },
+  "LK-3324120": {
+    "Temporary Corridors": 1
+  },
+  "LK-3324275": {
+    "Temporary Corridors": 1
+  },
+  "LK-3325160": {
+    "Temporary Corridors": 1
+  },
+  "LK-3321210": {
+    "Temporary Corridors": 1
+  },
+  "LK-7106050": {
+    "Temporary Corridors": 1
+  },
+  "LK-7106075": {
+    "Temporary Corridors": 1
+  },
+  "LK-7106110": {
+    "Temporary Corridors": 1
+  },
+  "LK-7124120": {
+    "Temporary Corridors": 1
+  },
+  "LK-7121050": {
+    "Temporary Corridors": 1
+  },
+  "LK-7121075": {
+    "Temporary Corridors": 1
+  },
+  "LK-7121160": {
+    "Temporary Corridors": 1
+  },
+  "LK-7127040": {
+    "Temporary Corridors": 1
+  },
+  "LK-7154015": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7157020": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7157045": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7157075": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-2206030": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-2206045": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-2206125": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-2206210": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-2209025": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-2209035": {
+    "Temporary Corridors": 1
+  },
+  "LK-9145075": {
+    "Temporary Corridors": 1
+  },
+  "LK-9145130": {
+    "Temporary Corridors": 2
+  },
+  "LK-9148010": {
+    "Temporary Corridors": 1
+  },
+  "LK-9148085": {
+    "Temporary Corridors": 1
+  },
+  "LK-9148140": {
+    "Temporary Corridors": 1
+  },
+  "LK-9148155": {
+    "Temporary Corridors": 1
+  },
+  "LK-3321020": {
+    "Temporary Corridors": 1
+  },
+  "LK-3321140": {
+    "Temporary Corridors": 1
+  },
+  "LK-3321245": {
+    "Temporary Corridors": 1
+  },
+  "LK-3321300": {
+    "Temporary Corridors": 1
+  },
+  "LK-7121065": {
+    "Temporary Corridors": 1
+  },
+  "LK-7121140": {
+    "Temporary Corridors": 1
+  },
+  "LK-7127030": {
+    "Temporary Corridors": 1
+  },
+  "LK-7127140": {
+    "Temporary Corridors": 1
+  },
+  "LK-7157005": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7203010": {
+    "Permanent Corridors and Parks": 2,
+    "Temporary Corridors": 1
+  },
+  "LK-7203075": {
+    "Permanent Corridors and Parks": 3
+  },
+  "LK-2206020": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-2206075": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7218100": {
+    "Temporary Corridors": 1
+  },
+  "LK-2209135": {
+    "Temporary Corridors": 1
+  },
+  "LK-2209260": {
+    "Temporary Corridors": 1
+  },
+  "LK-9115250": {
+    "Temporary Corridors": 1
+  },
+  "LK-9118105": {
+    "Temporary Corridors": 1
+  },
+  "LK-9145070": {
+    "Temporary Corridors": 1
+  },
+  "LK-9148075": {
+    "Temporary Corridors": 1
+  },
+  "LK-9148160": {
+    "Temporary Corridors": 1
+  },
+  "LK-3333010": {
+    "Temporary Corridors": 1
+  },
+  "LK-3333115": {
+    "Temporary Corridors": 1
+  },
+  "LK-7124185": {
+    "Temporary Corridors": 1,
+    "Permanent Corridors and Parks": 4
+  },
+  "LK-7203005": {
+    "Permanent Corridors and Parks": 2,
+    "Temporary Corridors": 4
+  },
+  "LK-7203080": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7218020": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7218045": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7218070": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7218075": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7218120": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7218140": {
+    "Temporary Corridors": 1
+  },
+  "LK-2224030": {
+    "Temporary Corridors": 1
+  },
+  "LK-2224055": {
+    "Temporary Corridors": 1
+  },
+  "LK-9118055": {
+    "Temporary Corridors": 1
+  },
+  "LK-9118100": {
+    "Temporary Corridors": 1
+  },
+  "LK-9148070": {
+    "Temporary Corridors": 1
+  },
+  "LK-7218015": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7218035": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7218060": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-2224025": {
+    "Temporary Corridors": 1
+  },
+  "LK-9118070": {
+    "Temporary Corridors": 1
+  },
+  "LK-8233005": {
+    "Temporary Corridors": 1
+  },
+  "LK-8233035": {
+    "Temporary Corridors": 1
+  },
+  "LK-7124190": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7206060": {
+    "Temporary Corridors": 1
+  },
+  "LK-7206165": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7215275": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-2227005": {
+    "Temporary Corridors": 2
+  },
+  "LK-2227045": {
+    "Temporary Corridors": 1
+  },
+  "LK-2227095": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8230005": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8230015": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8230025": {
+    "Temporary Corridors": 1
+  },
+  "LK-8233010": {
+    "Temporary Corridors": 1
+  },
+  "LK-5312010": {
+    "Temporary Corridors": 1
+  },
+  "LK-5318005": {
+    "Permanent Corridors and Parks": 1,
+    "Temporary Corridors": 1
+  },
+  "LK-7124150": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-5321060": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7206005": {
+    "Temporary Corridors": 1
+  },
+  "LK-7206040": {
+    "Temporary Corridors": 1
+  },
+  "LK-8230020": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8230030": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8230035": {
+    "Temporary Corridors": 1
+  },
+  "LK-7206015": {
+    "Temporary Corridors": 1
+  },
+  "LK-7206090": {
+    "Temporary Corridors": 1
+  },
+  "LK-5203030": {
+    "Temporary Corridors": 1
+  },
+  "LK-5203055": {
+    "Temporary Corridors": 1
+  },
+  "LK-8142195": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8221130": {
+    "Permanent Corridors and Parks": 1,
+    "Temporary Corridors": 1
+  },
+  "LK-8230050": {
+    "Temporary Corridors": 1
+  },
+  "LK-3303105": {
+    "Temporary Corridors": 1
+  },
+  "LK-3312050": {
+    "Temporary Corridors": 2
+  },
+  "LK-3312105": {
+    "Temporary Corridors": 1
+  },
+  "LK-7206020": {
+    "Temporary Corridors": 1
+  },
+  "LK-5203020": {
+    "Temporary Corridors": 1,
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-5203045": {
+    "Temporary Corridors": 1,
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-5203050": {
+    "Temporary Corridors": 1
+  },
+  "LK-8103100": {
+    "Permanent Corridors and Parks": 9
+  },
+  "LK-8103095": {
+    "Temporary Corridors": 1
+  },
+  "LK-8106020": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8221085": {
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-8221135": {
+    "Temporary Corridors": 1
+  },
+  "LK-8230055": {
+    "Temporary Corridors": 1
+  },
+  "LK-3306085": {
+    "Temporary Corridors": 1
+  },
+  "LK-3312010": {
+    "Temporary Corridors": 1
+  },
+  "LK-3312045": {
+    "Temporary Corridors": 1
+  },
+  "LK-3312110": {
+    "Temporary Corridors": 1
+  },
+  "LK-7206025": {
+    "Temporary Corridors": 2
+  },
+  "LK-7209020": {
+    "Temporary Corridors": 2
+  },
+  "LK-7209130": {
+    "Temporary Corridors": 1
+  },
+  "LK-7212210": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8106025": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8106060": {
+    "Temporary Corridors": 1
+  },
+  "LK-8221055": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8221105": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8221125": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8221115": {
+    "Temporary Corridors": 1
+  },
+  "LK-8221140": {
+    "Temporary Corridors": 1
+  },
+  "LK-3306080": {
+    "Temporary Corridors": 1
+  },
+  "LK-3312015": {
+    "Temporary Corridors": 1
+  },
+  "LK-3312035": {
+    "Temporary Corridors": 1
+  },
+  "LK-7210010": {
+    "Temporary Corridors": 1
+  },
+  "LK-7210025": {
+    "Temporary Corridors": 1
+  },
+  "LK-7210055": {
+    "Temporary Corridors": 1
+  },
+  "LK-7210070": {
+    "Temporary Corridors": 1
+  },
+  "LK-7210130": {
+    "Temporary Corridors": 1
+  },
+  "LK-7212035": {
+    "Temporary Corridors": 2
+  },
+  "LK-7212245": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8103110": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8106030": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8224115": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8224145": {
+    "Permanent Corridors and Parks": 3,
+    "Temporary Corridors": 1
+  },
+  "LK-8221110": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8221145": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-3306035": {
+    "Temporary Corridors": 1
+  },
+  "LK-3306060": {
+    "Temporary Corridors": 1
+  },
+  "LK-7210005": {
+    "Temporary Corridors": 2
+  },
+  "LK-7210090": {
+    "Temporary Corridors": 1
+  },
+  "LK-7210140": {
+    "Temporary Corridors": 1
+  },
+  "LK-5110035": {
+    "Temporary Corridors": 1,
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-7212185": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-7212240": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-5209005": {
+    "Permanent Corridors and Parks": 6
+  },
+  "LK-5206005": {
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-5206025": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-5206030": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-5206075": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8106035": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8203025": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8203030": {
+    "Temporary Corridors": 1
+  },
+  "LK-8224130": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8224125": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8230070": {
+    "Temporary Corridors": 1
+  },
+  "LK-5110030": {
+    "Temporary Corridors": 2
+  },
+  "LK-5112075": {
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-5209030": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-5206020": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-5206050": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-5206085": {
+    "Permanent Corridors and Parks": 3
+  },
+  "LK-8203040": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8203045": {
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-8224045": {
+    "Temporary Corridors": 1
+  },
+  "LK-8224080": {
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-8224140": {
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-8227005": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-3309005": {
+    "Temporary Corridors": 2
+  },
+  "LK-3309025": {
+    "Temporary Corridors": 1
+  },
+  "LK-5209075": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-5206100": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8203005": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8203010": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8203020": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8209020": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8209100": {
+    "Temporary Corridors": 1
+  },
+  "LK-8215105": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8224065": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8227010": {
+    "Permanent Corridors and Parks": 11
+  },
+  "LK-8227015": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-5110005": {
+    "Temporary Corridors": 1
+  },
+  "LK-5209080": {
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-8206005": {
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-8206015": {
+    "Permanent Corridors and Parks": 5
+  },
+  "LK-8203015": {
+    "Permanent Corridors and Parks": 3
+  },
+  "LK-8206040": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8206055": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8206090": {
+    "Temporary Corridors": 1
+  },
+  "LK-8215125": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8215130": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8224060": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-3309010": {
+    "Permanent Corridors and Parks": 16
+  },
+  "LK-5209085": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8206010": {
+    "Permanent Corridors and Parks": 2,
+    "Temporary Corridors": 1
+  },
+  "LK-8206025": {
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-8212050": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8206080": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8206155": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212160": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212180": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212240": {
+    "Permanent Corridors and Parks": 6,
+    "Temporary Corridors": 1
+  },
+  "LK-8212230": {
+    "Permanent Corridors and Parks": 1,
+    "Temporary Corridors": 1
+  },
+  "LK-5212065": {
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-5212180": {
+    "Temporary Corridors": 2
+  },
+  "LK-8206020": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212005": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212015": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212010": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212040": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8206145": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212140": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212185": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-5215005": {
+    "Temporary Corridors": 1
+  },
+  "LK-5242065": {
+    "Temporary Corridors": 1
+  },
+  "LK-5242155": {
+    "Temporary Corridors": 1,
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212035": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212060": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212090": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212130": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212205": {
+    "Permanent Corridors and Parks": 2,
+    "Temporary Corridors": 1
+  },
+  "LK-8212235": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-5212275": {
+    "Temporary Corridors": 1
+  },
+  "LK-5242100": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-5242160": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212025": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212030": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212095": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-8212100": {
+    "Permanent Corridors and Parks": 1
+  },
+  "LK-5251060": {
+    "Permanent Corridors and Parks": 9,
+    "Temporary Corridors": 3
+  },
+  "LK-5215010": {
+    "Temporary Corridors": 1
+  },
+  "LK-5242150": {
+    "Temporary Corridors": 1
+  },
+  "LK-5242165": {
+    "Permanent Corridors and Parks": 2
+  },
+  "LK-5251015": {
+    "Permanent Corridors and Parks": 1,
+    "Temporary Corridors": 2
+  },
+  "LK-5218250": {
+    "Temporary Corridors": 1
+  },
+  "LK-5245110": {
+    "Temporary Corridors": 1
+  },
+  "LK-5251030": {
+    "Temporary Corridors": 1
+  },
+  "LK-5251020": {
+    "Temporary Corridors": 1
+  },
+  "LK-5251040": {
+    "Temporary Corridors": 1
+  },
+  "LK-5248020": {
+    "Temporary Corridors": 2
+  },
+  "LK-5248105": {
+    "Temporary Corridors": 1
+  },
+  "LK-5248055": {
+    "Temporary Corridors": 1
   }
 }

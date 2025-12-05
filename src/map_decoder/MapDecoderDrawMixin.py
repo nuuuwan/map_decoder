@@ -46,8 +46,11 @@ class MapDecoderDrawMixin:
         map_ent_type: EntType,
         color_map_boundaries: tuple[int, int, int],
     ):
+        map_ent_type_to_draw = map_ent_type
+        if map_ent_type.name == EntType.GND.name:
+            map_ent_type_to_draw = EntType.DISTRICT
 
-        ents = Ent.list_from_type(map_ent_type)
+        ents = Ent.list_from_type(map_ent_type_to_draw)
         for ent in ents:
             geo = ent.geo()
             geo.plot(
@@ -145,6 +148,7 @@ class MapDecoderDrawMixin:
         color_to_label: dict[tuple[int, int, int], str],
         map_ent_type: EntType,
         title: str,
+        color_map_boundaries: tuple[int, int, int],
     ) -> Image.Image:
         plt.close()
         fig, ax = plt.subplots(figsize=(10, 10))
@@ -152,6 +156,11 @@ class MapDecoderDrawMixin:
             label: color for color, label in color_to_label.items()
         }
 
+        MapDecoderDrawMixin.draw_map(
+            ax=ax,
+            map_ent_type=map_ent_type,
+            color_map_boundaries=color_map_boundaries,
+        )
         ents = Ent.list_from_type(map_ent_type)
         total_population = 0
         coloured_population = 0
@@ -170,7 +179,7 @@ class MapDecoderDrawMixin:
                 color = [c / 255 for c in color_rgb]
 
             else:
-                color = "white"
+                continue
 
             geo = ent.geo()
 
