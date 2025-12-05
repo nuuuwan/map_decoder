@@ -1,3 +1,4 @@
+import numpy as np
 from gig import EntType
 from PIL import Image
 from utils import Log
@@ -51,6 +52,47 @@ class MapDecoderGeoMixin:
         return step
 
     @staticmethod
+    def get_info(
+        x: int,
+        y: int,
+        c: np.ndarray,
+        color_background: tuple[int, int, int],
+        params: dict,
+        color_to_label: dict[tuple, str],
+        map_ent_type: EntType,
+    ) -> dict | None:
+
+        color = tuple(int(c) for c in (c * 255).astype(int))
+        if color == color_background:
+            return None
+
+        label = color_to_label.get(color)
+        if not label:
+            log.error(f"Label not found for color: {color}")
+            return None
+
+        latlng = Poly2GeoMapper.transform((x, y), params)
+        latlng = (
+            round(latlng[0], 6),
+            round(latlng[1], 6),
+        )
+        idx_regions = EntFuture.idx_regions_from_latlng(latlng, map_ent_type)
+        ent = idx_regions.get(map_ent_type.name)
+        if not ent:
+            log.warning(f"Ent not found for latlng: {latlng} ({(x, y)})")
+            return None
+
+        info = dict(
+            xy=(x, y),
+            latlng=latlng,
+            ent_id=ent.id,
+            label=label,
+            color=color,
+        )
+        log.debug(f"{p:.2%}: {info}")
+        return info
+
+    @staticmethod
     def get_latlng_color_info_list(
         pil_image: Image.Image,
         reference_list: list[dict],
@@ -91,39 +133,15 @@ class MapDecoderGeoMixin:
                 if y < y_min or y > y_max:
                     continue
 
-                color = tuple(
-                    int(c) for c in (color_matrix[y, x] * 255).astype(int)
+                info = MapDecoderGeoMixin.get_info(
+                    x=x,
+                    y=y,
+                    c=color_matrix[y, x],
+                    color_background=color_background,
+                    params=params,
+                    color_to_label=color_to_label,
+                    map_ent_type=map_ent_type,
                 )
-                if color == color_background:
-                    continue
-
-                label = color_to_label.get(color)
-                if not label:
-                    log.error(f"Label not found for color: {color}")
-                    continue
-
-                latlng = Poly2GeoMapper.transform((x, y), params)
-                latlng = (
-                    round(latlng[0], 6),
-                    round(latlng[1], 6),
-                )
-                idx_regions = EntFuture.idx_regions_from_latlng(
-                    latlng, map_ent_type
-                )
-                ent = idx_regions.get(map_ent_type.name)
-                if not ent:
-                    log.warning(
-                        f"Ent not found for latlng: {latlng} ({(x, y)})"
-                    )
-                    continue
-
-                info = dict(
-                    xy=(x, y),
-                    latlng=latlng,
-                    ent_id=ent.id,
-                    label=label,
-                    color=color,
-                )
-                log.debug(f"{p:.2%}: {info}")
-                info_list.append(info)
+                if info is not None:
+                    info_list.append(info)
         return info_list
