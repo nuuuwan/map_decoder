@@ -31,7 +31,7 @@ class TestCase(unittest.TestCase):
                 self.assertEqual(observed_ent.id, expected_ent_id)
 
     def test_list_regions_from_latlng(self):
-        region_hierarchy = EntFuture.list_regions_from_latlng(
+        region_hierarchy = EntFuture.idx_regions_from_latlng(
             latlng=(
                 6.915706285411007,
                 79.86352777692407,

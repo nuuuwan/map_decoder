@@ -23,7 +23,7 @@ class EntFuture(Ent):
         return None
 
     @classmethod
-    def list_regions_from_latlng(cls, latlng: tuple[float, float]) -> dict:
+    def idx_regions_from_latlng(cls, latlng: tuple[float, float]) -> dict:
         region_hierarchy = {}
         parent_ent_id = "LK"
         for ent_type in [
