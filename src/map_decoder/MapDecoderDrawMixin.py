@@ -189,19 +189,22 @@ class MapDecoderDrawMixin:
                 edgecolor="black",
                 linewidth=0.1,
             )
-
+        MapDecoderDrawMixin.draw_legend(
+            ax=ax,
+            color_to_label=color_to_label,
+        )
         MapDecoderDrawMixin.format_axes(ax)
         plt.title(title)
 
         p_coloured = coloured_population / total_population
         n = len(ent_to_label_to_n)
         annotation_text = (
-            f"{n} {map_ent_type.name}s,"
+            f"{n} {map_ent_type.name.upper()}s,"
             + f" corresponding to {p_coloured:.1%}% of population"
         )
         ax.annotate(
             annotation_text,
-            xy=(0.5, 0.98),
+            xy=(0.5, 0.02),
             xycoords="axes fraction",
             va="center",
             ha="center",
