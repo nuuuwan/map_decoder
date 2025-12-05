@@ -27,10 +27,11 @@ class MapDecoder:
         color_matrix = color_array / 255.0
         return color_matrix
 
-    def __generate_inspection_image__(
-        self, reference_list: list[dict]
+    @staticmethod
+    def generate_inspection_image(
+        pil_image: Image.Image, reference_list: list[dict]
     ) -> Image.Image:
-        result_image = self.pil_image.copy()
+        result_image = pil_image.copy()
         draw = ImageDraw.Draw(result_image)
 
         try:
@@ -56,8 +57,9 @@ class MapDecoder:
 
         return result_image
 
-    def __get_latlng_transform_coefficients__(
-        self, reference_list: list[dict]
+    @staticmethod
+    def get_latlng_transform_coefficients(
+        reference_list: list[dict],
     ) -> tuple[tuple[float, float], tuple[float, float]]:
         assert (
             len(reference_list) >= 4
@@ -83,13 +85,16 @@ class MapDecoder:
         c_lng = lng3 - m_lng * x3
         return (m_lat, c_lat), (m_lng, c_lng)
 
-    def __get_latlng_color_info_list__(
-        self, reference_list: list[dict], valid_color_list: list[tuple]
+    @staticmethod
+    def get_latlng_color_info_list(
+        pil_image: Image.Image,
+        reference_list: list[dict],
+        valid_color_list: list[tuple],
     ) -> list[dict]:
-        color_matrix = self.get_color_matrix(self.pil_image)
+        color_matrix = MapDecoder.get_color_matrix(pil_image)
         info_list = []
         (m_lat, c_lat), (m_lng, c_lng) = (
-            self.__get_latlng_transform_coefficients__(reference_list)
+            MapDecoder.get_latlng_transform_coefficients(reference_list)
         )
         for x in range(color_matrix.shape[1]):
             for y in range(color_matrix.shape[0]):
@@ -132,8 +137,8 @@ class MapDecoder:
         )
         return color_p_count
 
-    def __generate_info_list_image__(
-        self,
+    @staticmethod
+    def generate_info_list_image(
         info_list: list[dict],
     ) -> Image.Image:
         plt.close()
@@ -166,13 +171,15 @@ class MapDecoder:
     def decode(
         self, reference_list: list[dict], valid_color_list: list[tuple]
     ) -> Image.Image:
-        info_list = self.__get_latlng_color_info_list__(
-            reference_list, valid_color_list
+        info_list = MapDecoder.get_latlng_color_info_list(
+            self.pil_image, reference_list, valid_color_list
         )
-        image_info_list = self.__generate_info_list_image__(info_list)
-        image_inspection = self.__generate_inspection_image__(reference_list)
+        image_info_list = MapDecoder.generate_info_list_image(info_list)
+        image_inspection = MapDecoder.generate_inspection_image(
+            self.pil_image, reference_list
+        )
 
-        most_common_colors = self.get_most_common_colors(info_list)
+        most_common_colors = MapDecoder.get_most_common_colors(info_list)
         return (
             info_list,
             image_inspection,
