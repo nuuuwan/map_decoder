@@ -20,8 +20,11 @@ class MapDecoder:
 
     @staticmethod
     def get_color_matrix(pil_image) -> np.ndarray:
+        Q = 16
         image_rgb = pil_image.convert("RGB")
-        color_matrix = np.array(image_rgb, dtype=np.float32) / 255.0
+        color_array = np.array(image_rgb, dtype=np.float32)
+        color_array = np.int16(color_array / Q) * Q
+        color_matrix = color_array / 255.0
         return color_matrix
 
     def __generate_inspection_image__(

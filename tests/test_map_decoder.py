@@ -14,7 +14,7 @@ class TestCase(unittest.TestCase):
         cm = md.get_color_matrix(md.pil_image)
         self.assertEqual(cm.shape, (654, 455, 3))
         first_item = tuple((cm[0, 0] * 255).astype(int))
-        self.assertEqual(first_item, (65, 65, 65))
+        self.assertEqual(first_item, (64, 64, 64))
 
     def test_decode(self):
         md = TEST_MAP_DECODER
@@ -60,11 +60,11 @@ class TestCase(unittest.TestCase):
             {
                 "latlng": (10.089629, 79.163467),
                 "xy": (0, 0),
-                "color": (65, 65, 65),
+                "color": (64, 64, 64),
             },
         )
         print(most_common_colors)
         self.assertEqual(
             most_common_colors,
-            {(255, 255, 255): 0.295, (253, 253, 253): 0.0811},
+            {(240, 240, 240): 0.6483, (224, 224, 224): 0.0602},
         )
