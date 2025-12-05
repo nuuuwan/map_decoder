@@ -8,6 +8,7 @@ from sklearn.cluster import KMeans
 from utils import Log
 
 from gig_future import EntFuture
+from utils_future import Poly2GeoMapper
 
 log = Log("MapDecoder")
 
@@ -122,38 +123,9 @@ class MapDecoder:
         return result_image
 
     @staticmethod
-    def get_latlng_transform_coefficients(
-        reference_list: list[dict],
-    ) -> tuple[tuple[float, float], tuple[float, float]]:
-        assert (
-            len(reference_list) >= 4
-        ), "At least 4 reference points are required."
-        (lat1, lng1), (lat2, lng2), (lat3, lng3), (lat4, lng4) = (
-            reference_list[0]["latlng"],
-            reference_list[1]["latlng"],
-            reference_list[2]["latlng"],
-            reference_list[3]["latlng"],
-        )
-
-        (x1, y1), (x2, y2), (x3, y3), (x4, y4) = (
-            reference_list[0]["xy"],
-            reference_list[1]["xy"],
-            reference_list[2]["xy"],
-            reference_list[3]["xy"],
-        )
-
-        m_lat = (lat2 - lat1) / (y2 - y1)
-        c_lat = lat1 - m_lat * y1
-
-        m_lng = (lng4 - lng3) / (x4 - x3)
-        c_lng = lng3 - m_lng * x3
-        return (m_lat, c_lat), (m_lng, c_lng)
-
-    @staticmethod
     def get_latlng_color_info_list(
         pil_image: Image.Image,
         reference_list: list[dict],
-        valid_color_list: list[tuple],
         min_saturation: float,
         n_clusters: int,
         color_background: tuple[int, int, int],
@@ -168,14 +140,13 @@ class MapDecoder:
             color_background=color_background,
         )
         info_list = []
-        (m_lat, c_lat), (m_lng, c_lng) = (
-            MapDecoder.get_latlng_transform_coefficients(
-                reference_list=reference_list
-            )
-        )
 
-        step = max(1, int(box_size_lat / abs(m_lat)))
-        log.debug(f"{box_size_lat}, {m_lat=}, {m_lng=}, {step=}, ")
+        step = 5
+
+        lat_params, lng_params = Poly2GeoMapper.fit(
+            xys=[ref["xy"] for ref in reference_list],
+            latlngs=[ref["latlng"] for ref in reference_list],
+        )
 
         for x in range(0, color_matrix.shape[1], step):
             for y in range(0, color_matrix.shape[0], step):
@@ -184,13 +155,14 @@ class MapDecoder:
                 )
                 if color == color_background:
                     continue
-                if valid_color_list and color not in valid_color_list:
-                    continue
 
-                lat = round(y * m_lat + c_lat, 6)
-                lng = round(x * m_lng + c_lng, 6)
-                latlng = (lat, lng)
-
+                latlng = Poly2GeoMapper.transform(
+                    (x, y), lat_params, lng_params
+                )
+                latlng = (
+                    round(latlng[0], 6),
+                    round(latlng[1], 6),
+                )
                 idx_regions = EntFuture.idx_regions_from_latlng(
                     latlng, map_ent_type
                 )
@@ -307,7 +279,6 @@ class MapDecoder:
     def decode(
         self,
         reference_list: list[dict],
-        valid_color_list: list[tuple],
         min_saturation: float,
         n_clusters: int,
         color_reference_point: tuple[int, int, int],
@@ -321,7 +292,6 @@ class MapDecoder:
         info_list = MapDecoder.get_latlng_color_info_list(
             pil_image=self.pil_image,
             reference_list=reference_list,
-            valid_color_list=valid_color_list,
             min_saturation=min_saturation,
             n_clusters=n_clusters,
             color_background=color_background,
