@@ -85,6 +85,14 @@ class MapDecoderDrawMixin:
         )
 
     @staticmethod
+    def format_axes(ax):
+        ax.grid(False)
+        ax.set_xlabel("")
+        ax.set_ylabel("")
+        ax.set_xticks([])
+        ax.set_yticks([])
+
+    @staticmethod
     def generate_info_list_image(
         info_list: list[dict],
         color_map_boundaries: tuple[int, int, int],
@@ -105,13 +113,11 @@ class MapDecoderDrawMixin:
             for info in info_list
         ]
         fig, ax = plt.subplots(figsize=(10, 10))
-
         MapDecoderDrawMixin.draw_map(
             ax=ax,
             map_ent_type=map_ent_type,
             color_map_boundaries=color_map_boundaries,
         )
-
         ax.scatter(
             lngs,
             lats,
@@ -119,20 +125,12 @@ class MapDecoderDrawMixin:
             s=200 * box_size_lat,
             marker="s",
         )
-
         MapDecoderDrawMixin.draw_legend(
             ax=ax,
             color_to_label=color_to_label,
         )
-
         plt.title(title)
-
-        # Remove grid and axis labels
-        ax.grid(False)
-        ax.set_xlabel("")
-        ax.set_ylabel("")
-        ax.set_xticks([])
-        ax.set_yticks([])
+        MapDecoderDrawMixin.format_axes(ax)
 
         temp_image_path = tempfile.NamedTemporaryFile(
             suffix=".png", delete=False

@@ -119,7 +119,7 @@ class MapDecoderGeoMixin:
         y_end = min(color_matrix.shape[0], int(y_max) + 1)
         y_range = range(y_start, y_end, step)
         info_list = []
-        for x in tqdm(x_range, desc="Processing columns"):
+        for x in tqdm(x_range, desc="Processing image"):
             for y in y_range:
                 info = MapDecoderGeoMixin.get_info(
                     x=x,
