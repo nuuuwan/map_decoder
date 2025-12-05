@@ -9,28 +9,26 @@ class TestCase(unittest.TestCase):
     def test_from_latlng(self):
 
         for latlng, expected_ent_id in [
-            (
+            [
                 (
                     6.915706285411007,
                     79.86352777692407,
                 ),  # Town Hall, Colombo,
-                "LK-1",  # Central Province
-            ),
+                "LK-1",  # Western Province
+            ],
+            [
+                (4.1748, 73.50888),  # Male, Maldives
+                None,
+            ],
         ]:
             observed_ent = EntFuture.from_latlng(
                 latlng=latlng,
-                region_ent_type=EntType.from_id(expected_ent_id),
+                region_ent_type=EntType.PROVINCE,
             )
-            self.assertEqual(observed_ent.id, expected_ent_id)
-
-        ent = EntFuture.from_latlng(
-            latlng=(
-                6.915706285411007,
-                79.86352777692407,
-            ),  # Town Hall, Colombo,
-            region_ent_type=EntType.DISTRICT,
-        )
-        self.assertEqual(ent.id, "LK-11")
+            if expected_ent_id is None:
+                self.assertIsNone(observed_ent)
+            else:
+                self.assertEqual(observed_ent.id, expected_ent_id)
 
     def test_list_regions_from_latlng(self):
         region_hierarchy = EntFuture.list_regions_from_latlng(

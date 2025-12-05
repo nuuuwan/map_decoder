@@ -20,9 +20,7 @@ class EntFuture(Ent):
             if geo.geometry.contains(point).any():
                 return ent
 
-        raise ValueError(
-            f"No {region_ent_type} found containing point {latlng}"
-        )
+        return None
 
     @classmethod
     def list_regions_from_latlng(cls, latlng: tuple[float, float]) -> dict:
@@ -35,6 +33,8 @@ class EntFuture(Ent):
             EntType.GND,
         ]:
             ent = cls.from_latlng(latlng, ent_type, parent_ent_id)
+            if ent is None:
+                return region_hierarchy
             region_hierarchy[ent_type.name] = ent
             parent_ent_id = ent.id
 
