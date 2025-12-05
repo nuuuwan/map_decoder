@@ -158,6 +158,10 @@ class MapDecoder:
                 if color == color_background:
                     continue
 
+                if not color_to_label.get(color):
+                    log.error(f"Label not found for color: {color}")
+                    continue
+
                 latlng = Poly2GeoMapper.transform((x, y), params)
                 latlng = (
                     round(latlng[0], 6),
@@ -168,12 +172,11 @@ class MapDecoder:
                 )
                 ent = idx_regions.get(map_ent_type.name)
                 if not ent:
+                    log.warning(
+                        f"Ent not found for latlng: {latlng} ({(x, y)})"
+                    )
                     continue
 
-                label = color_to_label.get(color)
-                if not label:
-                    log.error(f"Label not found for color: {color}")
-                    continue
                 info = dict(
                     xy=(x, y),
                     latlng=latlng,
