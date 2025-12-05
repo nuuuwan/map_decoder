@@ -1,1 +1,6 @@
 utils-nuuuwan
+gig-nuuuwan
+opencv-python
+numpy
+pandas
+matplotlib
