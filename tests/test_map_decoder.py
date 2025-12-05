@@ -4,7 +4,7 @@ import unittest
 from map_decoder import MapDecoder
 
 TEST_MAP_DECODER = MapDecoder.open(
-    os.path.join("images", "lk-elephant-corridors.png")
+    os.path.join("tests", "inputs", "lk-elephant-corridors.png")
 )
 
 

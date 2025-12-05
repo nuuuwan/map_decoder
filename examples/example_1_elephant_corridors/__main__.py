@@ -9,12 +9,10 @@ log = Log("examples")
 
 
 def main():
-    image_path = os.path.join("images", "lk-elephant-corridors.png")
+    dir_self = os.path.join("examples", "example_1_elephant_corridors")
+    image_path = os.path.join(dir_self, "lk-elephant-corridors.png")
 
     md = MapDecoder.open(image_path)
-
-    dir_self = os.path.join("examples", "example_1_elephant_corridors")
-
     reference_list = [
         {
             "label": "Point Pedro",
