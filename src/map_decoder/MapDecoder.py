@@ -7,6 +7,8 @@ from PIL import Image, ImageDraw, ImageFont
 from sklearn.cluster import KMeans
 from utils import Log
 
+from gig_future import EntFuture
+
 log = Log("MapDecoder")
 
 
@@ -166,13 +168,27 @@ class MapDecoder:
         for x in range(color_matrix.shape[1]):
             for y in range(color_matrix.shape[0]):
                 color = tuple((color_matrix[y, x] * 255).astype(int))
+                if color == color_background:
+                    continue
                 if valid_color_list and color not in valid_color_list:
                     continue
 
                 lat = round(y * m_lat + c_lat, 6)
                 lng = round(x * m_lng + c_lng, 6)
+                latlng = (lat, lng)
+
+                idx_regions = EntFuture.idx_regions_from_latlng(latlng)
+                district_id = idx_regions.get(EntType.DISTRICT.name)
+                if not district_id:
+                    continue
+
                 info_list.append(
-                    dict(latlng=(lat, lng), xy=(x, y), color=color)
+                    dict(
+                        latlng=latlng,
+                        xy=(x, y),
+                        color=color,
+                        district_id=district_id,
+                    )
                 )
         return info_list
 

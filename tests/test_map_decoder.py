@@ -1,6 +1,8 @@
 import os
 import unittest
 
+from utils import JSONFile
+
 from map_decoder import MapDecoder
 
 TEST_MAP_DECODER = MapDecoder.open(
@@ -58,6 +60,10 @@ class TestCase(unittest.TestCase):
             )
         )
 
+        JSONFile(
+            os.path.join("tests", "output", "test_decode_info_list.json")
+        ).write(info_list)
+
         image_inspection.save(
             os.path.join("tests", "output", "test_decode_inspection.png")
         )
@@ -74,6 +80,7 @@ class TestCase(unittest.TestCase):
                 "latlng": (10.089629, 79.163467),
                 "xy": (0, 0),
                 "color": (254, 254, 254),
+                "gnd_id": None,
             },
         )
         print(most_common_colors)

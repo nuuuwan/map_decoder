@@ -29,8 +29,8 @@ class EntFuture(Ent):
         for ent_type in [
             EntType.PROVINCE,
             EntType.DISTRICT,
-            EntType.DSD,
-            EntType.GND,
+            # EntType.DSD,
+            # EntType.GND,
         ]:
             ent = cls.from_latlng(latlng, ent_type, parent_ent_id)
             if ent is None:
