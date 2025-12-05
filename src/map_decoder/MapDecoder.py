@@ -158,7 +158,8 @@ class MapDecoder:
                 if color == color_background:
                     continue
 
-                if not color_to_label.get(color):
+                label = color_to_label.get(color)
+                if not label:
                     log.error(f"Label not found for color: {color}")
                     continue
 
@@ -184,7 +185,7 @@ class MapDecoder:
                     label=label,
                     color=color,
                 )
-                log.debug(info)
+                log.debug(f"{p:.2%}: {info}")
                 info_list.append(info)
         return info_list
 
