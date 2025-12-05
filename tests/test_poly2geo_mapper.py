@@ -26,6 +26,16 @@ class TestCase(unittest.TestCase):
                 "xy": (390, 442),
                 "latlng": (7.022706066775057, 81.8787010500323),
             },
+            {
+                "label": "Colombo",
+                "xy": (96, 458),
+                "latlng": (6.942870277422712, 79.83995049428376),
+            },
+            {
+                "label": "Negombo",
+                "xy": (98, 417),
+                "latlng": (7.20648075894579, 79.84092635802587),
+            },
         ]
         xys = [ref["xy"] for ref in reference_list]
         latlngs = [ref["latlng"] for ref in reference_list]
