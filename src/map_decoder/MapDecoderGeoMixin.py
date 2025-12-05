@@ -78,7 +78,6 @@ class MapDecoderGeoMixin:
         idx_regions = EntFuture.idx_regions_from_latlng(latlng, map_ent_type)
         ent = idx_regions.get(map_ent_type.name)
         if not ent:
-            log.warning(f"Ent not found for latlng: {latlng} ({(x, y)})")
             return None
 
         info = dict(
