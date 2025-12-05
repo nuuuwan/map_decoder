@@ -1,5 +1,6 @@
 import numpy as np
 from gig import EntType
+from tqdm import tqdm
 from utils import Log
 
 from gig_future import EntFuture
@@ -55,7 +56,6 @@ class MapDecoderGeoMixin:
         x: int,
         y: int,
         c: np.ndarray,
-        n: int,
         color_background: tuple[int, int, int],
         params: dict,
         color_to_label: dict[tuple, str],
@@ -90,8 +90,6 @@ class MapDecoderGeoMixin:
             color=color,
         )
 
-        p = x / n
-        log.debug(f"{p:.2%}: {info}")
         return info
 
     @staticmethod
@@ -103,12 +101,10 @@ class MapDecoderGeoMixin:
         color_to_label: dict[tuple, str],
         color_matrix: np.ndarray,
     ) -> list[dict]:
-
         params = Poly2GeoMapper.fit(
             xys=[ref["xy"] for ref in reference_list],
             latlngs=[ref["latlng"] for ref in reference_list],
         )
-
         x_min, x_max, y_min, y_max = MapDecoderGeoMixin.get_extreme_points(
             reference_list=reference_list
         )
@@ -116,20 +112,19 @@ class MapDecoderGeoMixin:
             reference_list=reference_list,
             box_size_lat=box_size_lat,
         )
+        x_start = max(0, int(x_min))
+        x_end = min(color_matrix.shape[1], int(x_max) + 1)
+        x_range = range(x_start, x_end, step)
+        y_start = max(0, int(y_min))
+        y_end = min(color_matrix.shape[0], int(y_max) + 1)
+        y_range = range(y_start, y_end, step)
         info_list = []
-        n = color_matrix.shape[1]
-        for x in range(0, color_matrix.shape[1], step):
-            if x < x_min or x > x_max:
-                continue
-            for y in range(0, color_matrix.shape[0], step):
-                if y < y_min or y > y_max:
-                    continue
-
+        for x in tqdm(x_range, desc="Processing columns"):
+            for y in y_range:
                 info = MapDecoderGeoMixin.get_info(
                     x=x,
                     y=y,
                     c=color_matrix[y, x],
-                    n=n,
                     color_background=color_background,
                     params=params,
                     color_to_label=color_to_label,
