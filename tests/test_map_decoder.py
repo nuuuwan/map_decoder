@@ -19,18 +19,44 @@ class TestCase(unittest.TestCase):
         reference_list = [
             {
                 "label": "Point Pedro",
-                "xy": (154, 38),
+                "xy": (154, 37),
                 "latlng": (9.835389314753982, 80.2121458415902),
             },
             {
-                "label": "Point Dondra",
+                "label": "Dondra Head",
                 "xy": (208, 607),
                 "latlng": (5.918717418993297, 80.5912354116987),
             },
+            {
+                "label": "Kandakuliya",
+                "xy": (76, 269),
+                "latlng": (8.210296842304663, 79.69258966975879),
+            },
+            {
+                "label": "Sangaman Kanda",
+                "xy": (390, 442),
+                "latlng": (7.022706066775057, 81.8787010500323),
+            },
         ]
-        decoded_image = md.decode(reference_list)
-        decoded_image.save(
-            os.path.join(
-                "tests", "output", "lk-elephant-corridors-decoded.png"
-            )
+        info_list, image_inspection, image_info_list = md.decode(
+            reference_list
+        )
+
+        image_inspection.save(
+            os.path.join("tests", "output", "test_decode_inspection.png")
+        )
+        image_info_list.save(
+            os.path.join("tests", "output", "test_decode_info_list.png")
+        )
+
+        self.assertEqual(len(info_list), 654 * 455)
+        first_info = info_list[0]
+        print(first_info)
+        self.assertEqual(
+            first_info,
+            {
+                "latlng": (10.09696, 79.163467),
+                "xy": (0, 0),
+                "color": (65, 65, 65),
+            },
         )

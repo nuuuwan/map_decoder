@@ -1,7 +1,13 @@
+import tempfile
 from functools import cached_property
 
+import matplotlib.pyplot as plt
 import numpy as np
+from gig import Ent, EntType
 from PIL import Image, ImageDraw, ImageFont
+from utils import Log
+
+log = Log("MapDecoder")
 
 
 class MapDecoder:
@@ -48,6 +54,83 @@ class MapDecoder:
 
         return result_image
 
+    def __get_latlng_transform_coefficients__(
+        self, reference_list: list[dict]
+    ) -> tuple[tuple[float, float], tuple[float, float]]:
+        assert (
+            len(reference_list) >= 4
+        ), "At least 4 reference points are required."
+        (lat1, lng1), (lat2, lng2), (lat3, lng3), (lat4, lng4) = (
+            reference_list[0]["latlng"],
+            reference_list[1]["latlng"],
+            reference_list[2]["latlng"],
+            reference_list[3]["latlng"],
+        )
+
+        (x1, y1), (x2, y2), (x3, y3), (x4, y4) = (
+            reference_list[0]["xy"],
+            reference_list[1]["xy"],
+            reference_list[2]["xy"],
+            reference_list[3]["xy"],
+        )
+
+        m_lat = (lat2 - lat1) / (y2 - y1)
+        c_lat = lat1 - m_lat * y1
+
+        m_lng = (lng4 - lng3) / (x4 - x3)
+        c_lng = lng3 - m_lng * x3
+        return (m_lat, c_lat), (m_lng, c_lng)
+
+    def __get_latlng_color_info_list__(
+        self, reference_list: list[dict]
+    ) -> list[dict]:
+        color_matrix = self.color_matrix
+        info_list = []
+        (m_lat, c_lat), (m_lng, c_lng) = (
+            self.__get_latlng_transform_coefficients__(reference_list)
+        )
+        for x in range(color_matrix.shape[1]):
+            for y in range(color_matrix.shape[0]):
+                color = tuple((color_matrix[y, x] * 255).astype(int))
+                lat = round(y * m_lat + c_lat, 6)
+                lng = round(x * m_lng + c_lng, 6)
+                info_list.append(
+                    dict(latlng=(lat, lng), xy=(x, y), color=color)
+                )
+        return info_list
+
+    def __generate_info_list_image__(
+        self, info_list: list[dict]
+    ) -> Image.Image:
+        plt.close()
+        lats = [info["latlng"][0] for info in info_list]
+        lngs = [info["latlng"][1] for info in info_list]
+        colors = [
+            (
+                info["color"][0] / 255,
+                info["color"][1] / 255,
+                info["color"][2] / 255,
+            )
+            for info in info_list
+        ]
+        fig, ax = plt.subplots(figsize=(10, 10))
+
+        ax.scatter(lngs, lats, s=1, c=colors)
+
+        district_ents = Ent.list_from_type(EntType.DISTRICT)
+        for ent in district_ents:
+            geo = ent.geo()
+            geo.plot(ax=ax, facecolor="none", edgecolor="red", linewidth=0.5)
+
+        temp_image_path = tempfile.NamedTemporaryFile(
+            suffix=".png", delete=False
+        ).name
+        plt.savefig(temp_image_path, dpi=300)
+        plt.close(fig)
+        return Image.open(temp_image_path)
+
     def decode(self, reference_list: list[dict]) -> Image.Image:
-        inspection_image = self.__generate_inspection_image__(reference_list)
-        return inspection_image
+        info_list = self.__get_latlng_color_info_list__(reference_list)
+        image_info_list = self.__generate_info_list_image__(info_list)
+        image_inspection = self.__generate_inspection_image__(reference_list)
+        return info_list, image_inspection, image_info_list
