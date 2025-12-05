@@ -53,15 +53,14 @@ class MapDecoderGeoMixin:
 
     @staticmethod
     def get_info(  # noqa: CFQ004
-        x: int,
-        y: int,
+        xy: tuple[int, int],
         c: np.ndarray,
         color_background: tuple[int, int, int],
         params: dict,
         color_to_label: dict[tuple, str],
         map_ent_type: EntType,
     ) -> dict | None:
-
+        x, y = xy
         color = tuple(int(c) for c in (c * 255).astype(int))
         if color == color_background:
             return None
@@ -83,7 +82,7 @@ class MapDecoderGeoMixin:
             return None
 
         info = dict(
-            xy=(x, y),
+            xy=xy,
             latlng=latlng,
             ent_id=ent.id,
             label=label,
@@ -122,8 +121,7 @@ class MapDecoderGeoMixin:
         for x in tqdm(x_range, desc="Processing image"):
             for y in y_range:
                 info = MapDecoderGeoMixin.get_info(
-                    x=x,
-                    y=y,
+                    xy=(x, y),
                     c=color_matrix[y, x],
                     color_background=color_background,
                     params=params,
