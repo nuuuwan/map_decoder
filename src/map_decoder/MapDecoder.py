@@ -23,6 +23,32 @@ class MapDecoder:
         self.pil_image = pil_image
 
     @staticmethod
+    def get_extreme_points(
+        reference_list: list[dict],
+    ) -> dict[str, dict]:
+        x_min, x_max, y_min, y_max = (
+            float("inf"),
+            float("-inf"),
+            float("inf"),
+            float("-inf"),
+        )
+
+        for ref in reference_list:
+            x, y = ref["xy"]
+            extreme_point = ref.get("extreme_point", None)
+
+            if extreme_point == "N":
+                y_min = y
+            elif extreme_point == "S":
+                y_max = y
+            elif extreme_point == "W":
+                x_min = x
+            elif extreme_point == "E":
+                x_max = x
+
+        return x_min, x_max, y_min, y_max
+
+    @staticmethod
     def cluster_colors(
         color_array: np.ndarray,
         n_clusters: int,
@@ -145,12 +171,23 @@ class MapDecoder:
             latlngs=[ref["latlng"] for ref in reference_list],
         )
 
+        x_min, x_max, y_min, y_max = MapDecoder.get_extreme_points(
+            reference_list=reference_list
+        )
+
         info_list = []
         step = 3
         for x in range(0, color_matrix.shape[1], step):
+
+            if x < x_min or x > x_max:
+                continue
+
             p = x / color_matrix.shape[1]
             log.debug(f"{p:.2%}")
             for y in range(0, color_matrix.shape[0], step):
+
+                if y < y_min or y > y_max:
+                    continue
 
                 color = tuple(
                     int(c) for c in (color_matrix[y, x] * 255).astype(int)
