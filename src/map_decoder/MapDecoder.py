@@ -1,4 +1,3 @@
-import colorsys
 import tempfile
 
 import matplotlib.pyplot as plt
@@ -168,14 +167,6 @@ class MapDecoder:
             for y in range(color_matrix.shape[0]):
                 color = tuple((color_matrix[y, x] * 255).astype(int))
                 if valid_color_list and color not in valid_color_list:
-                    continue
-
-                # Filter by saturation
-                r, g, b = color
-                _, saturation, _ = colorsys.rgb_to_hsv(
-                    r / 255.0, g / 255.0, b / 255.0
-                )
-                if saturation < min_saturation:
                     continue
 
                 lat = round(y * m_lat + c_lat, 6)
