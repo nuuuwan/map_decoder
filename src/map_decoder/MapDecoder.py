@@ -2,13 +2,16 @@ from gig import EntType
 from PIL import Image
 from utils import Log
 
+from map_decoder.MapDecoderDrawMixin import MapDecoderDrawMixin
 from map_decoder.MapDecoderGeoMixin import MapDecoderGeoMixin
 from map_decoder.MapDecoderImageMixin import MapDecoderImageMixin
 
 log = Log("MapDecoder")
 
 
-class MapDecoder(MapDecoderImageMixin, MapDecoderGeoMixin):
+class MapDecoder(
+    MapDecoderImageMixin, MapDecoderGeoMixin, MapDecoderDrawMixin
+):
     @classmethod
     def open(cls, filepath: str) -> "MapDecoder":
         pil_image = Image.open(filepath)
