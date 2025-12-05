@@ -7,7 +7,8 @@ from map_decoder import MapDecoder
 
 log = Log("examples")
 
-ENT_TYPE = EntType.DSD
+BOX_SIZE_LAT = 0.01
+ENT_TYPE = EntType.GND
 DIR_THIS = os.path.join("examples", "example_1_elephant_corridors")
 
 
@@ -69,7 +70,7 @@ def main():
         color_reference_point=(255, 0, 0),
         color_map_boundaries=(0, 0, 0),
         color_background=(255, 255, 255),
-        box_size_lat=0.1,
+        box_size_lat=BOX_SIZE_LAT,
         map_ent_type=ENT_TYPE,
         title="Elephant Corridors in Sri Lanka",
         color_to_label={
