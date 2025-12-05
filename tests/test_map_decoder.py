@@ -1,6 +1,7 @@
 import os
 import unittest
 
+from gig import EntType
 from utils import JSONFile
 
 from map_decoder import MapDecoder
@@ -57,6 +58,8 @@ class TestCase(unittest.TestCase):
                 color_reference_point=(255, 0, 0),
                 color_map_boundaries=(0, 0, 0),
                 color_background=(255, 255, 255),
+                box_size_lat=0.1,
+                map_ent_type=EntType.DSD,
             )
         )
 
@@ -71,19 +74,20 @@ class TestCase(unittest.TestCase):
             os.path.join("tests", "output", "test_decode_info_list.png")
         )
 
-        self.assertEqual(len(info_list), 29_346)
+        self.assertEqual(len(info_list), 139)
         first_info = info_list[0]
         print(first_info)
         self.assertEqual(
             first_info,
             {
-                "latlng": (6.111115, 79.163467),
-                "xy": (0, 579),
-                "color": (81, 174, 200),
+                "latlng": (8.550446, 79.943227),
+                "xy": (112, 224),
+                "color": (20, 167, 85),
+                "ent_id": "LK-6206",
             },
         )
         print(most_common_colors)
         self.assertEqual(
             most_common_colors,
-            {(81, 174, 200): 0.5255, (20, 167, 85): 0.4745},
+            {(81, 174, 200): 0.5108, (20, 167, 85): 0.4892},
         )

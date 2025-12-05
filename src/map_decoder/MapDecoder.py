@@ -7,6 +7,8 @@ from PIL import Image, ImageDraw, ImageFont
 from sklearn.cluster import KMeans
 from utils import Log
 
+from gig_future import EntFuture
+
 log = Log("MapDecoder")
 
 
@@ -155,6 +157,8 @@ class MapDecoder:
         min_saturation: float,
         n_clusters: int,
         color_background: tuple[int, int, int],
+        box_size_lat: int,
+        map_ent_type: EntType,
     ) -> list[dict]:
         color_matrix = MapDecoder.get_color_matrix(
             pil_image=pil_image,
@@ -168,7 +172,10 @@ class MapDecoder:
                 reference_list=reference_list
             )
         )
-        step = 1
+
+        step = max(1, int(box_size_lat / abs(m_lat)))
+        log.debug(f"{box_size_lat}, {m_lat=}, {m_lng=}, {step=}, ")
+
         for x in range(0, color_matrix.shape[1], step):
             for y in range(0, color_matrix.shape[0], step):
                 color = tuple(
@@ -183,24 +190,26 @@ class MapDecoder:
                 lng = round(x * m_lng + c_lng, 6)
                 latlng = (lat, lng)
 
-                # idx_regions = EntFuture.idx_regions_from_latlng(latlng)
-                # ent_district = idx_regions.get(EntType.DISTRICT.name)
-                # if not ent_district:
-                #     continue
+                idx_regions = EntFuture.idx_regions_from_latlng(
+                    latlng, map_ent_type
+                )
+                ent = idx_regions.get(map_ent_type.name)
+                if not ent:
+                    continue
 
                 info_list.append(
                     dict(
                         latlng=latlng,
                         xy=(x, y),
                         color=color,
-                        # district_id=ent_district.id,
+                        ent_id=ent.id,
                     )
                 )
         return info_list
 
     @staticmethod
     def get_most_common_colors(
-        info_list: list[dict], min_p: float = 0.01
+        info_list: list[dict],
     ) -> dict[tuple, int]:
         color_count = {}
         for info in info_list:
@@ -209,13 +218,9 @@ class MapDecoder:
                 color_count[color] = 0
             color_count[color] += 1
         n = len(info_list)
-        n_limit = int(n * min_p)
+
         color_p_count = dict(
-            {
-                k: round(v / n, 4)
-                for k, v in color_count.items()
-                if v >= n_limit
-            }
+            {k: round(v / n, 4) for k, v in color_count.items()}
         )
 
         color_p_count = dict(
@@ -223,7 +228,7 @@ class MapDecoder:
                 color_p_count.items(),
                 key=lambda item: item[1],
                 reverse=True,
-            )[:n_limit]
+            )
         )
         return color_p_count
 
@@ -231,6 +236,8 @@ class MapDecoder:
     def generate_info_list_image(
         info_list: list[dict],
         color_map_boundaries: tuple[int, int, int],
+        box_size_lat: int,
+        map_ent_type: EntType,
     ) -> Image.Image:
         plt.close()
         lats = [info["latlng"][0] for info in info_list]
@@ -245,17 +252,23 @@ class MapDecoder:
         ]
         fig, ax = plt.subplots(figsize=(10, 10))
 
-        ax.scatter(lngs, lats, s=1, c=colors)
-
-        district_ents = Ent.list_from_type(EntType.DISTRICT)
-        for ent in district_ents:
+        ents = Ent.list_from_type(map_ent_type)
+        for ent in ents:
             geo = ent.geo()
             geo.plot(
                 ax=ax,
                 facecolor="none",
                 edgecolor=color_map_boundaries,
-                linewidth=1,
+                linewidth=0.1,
             )
+
+        ax.scatter(
+            lngs,
+            lats,
+            c=colors,
+            s=10 / box_size_lat,
+            marker="s",
+        )
 
         temp_image_path = tempfile.NamedTemporaryFile(
             suffix=".png", delete=False
@@ -273,6 +286,8 @@ class MapDecoder:
         color_reference_point: tuple[int, int, int],
         color_map_boundaries: tuple[int, int, int],
         color_background: tuple[int, int, int],
+        box_size_lat: int,
+        map_ent_type: EntType,
     ) -> Image.Image:
         info_list = MapDecoder.get_latlng_color_info_list(
             pil_image=self.pil_image,
@@ -281,10 +296,14 @@ class MapDecoder:
             min_saturation=min_saturation,
             n_clusters=n_clusters,
             color_background=color_background,
+            box_size_lat=box_size_lat,
+            map_ent_type=map_ent_type,
         )
         image_info_list = MapDecoder.generate_info_list_image(
             info_list=info_list,
             color_map_boundaries=color_map_boundaries,
+            box_size_lat=box_size_lat,
+            map_ent_type=map_ent_type,
         )
         image_inspection = MapDecoder.generate_inspection_image(
             pil_image=self.pil_image,

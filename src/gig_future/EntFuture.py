@@ -23,19 +23,25 @@ class EntFuture(Ent):
         return None
 
     @classmethod
-    def idx_regions_from_latlng(cls, latlng: tuple[float, float]) -> dict:
+    def idx_regions_from_latlng(
+        cls,
+        latlng: tuple[float, float],
+        map_ent_type: EntType = EntType.GND,
+    ) -> dict:
         region_hierarchy = {}
         parent_ent_id = "LK"
         for ent_type in [
             EntType.PROVINCE,
             EntType.DISTRICT,
-            # EntType.DSD,
-            # EntType.GND,
+            EntType.DSD,
+            EntType.GND,
         ]:
             ent = cls.from_latlng(latlng, ent_type, parent_ent_id)
             if ent is None:
                 return region_hierarchy
             region_hierarchy[ent_type.name] = ent
             parent_ent_id = ent.id
+            if ent_type.name == map_ent_type.name:
+                break
 
         return region_hierarchy

@@ -45,11 +45,11 @@ class TestCase(unittest.TestCase):
             region_hierarchy[EntType.DISTRICT.name].name,
             "Colombo",
         )
-        # self.assertEqual(
-        #     region_hierarchy[EntType.DSD.name].name,
-        #     "Thimbirigasyaya",
-        # )
-        # self.assertEqual(
-        #     region_hierarchy[EntType.GND.name].name,
-        #     "Kurunduwatta",
-        # )
+        self.assertEqual(
+            region_hierarchy[EntType.DSD.name].name,
+            "Thimbirigasyaya",
+        )
+        self.assertEqual(
+            region_hierarchy[EntType.GND.name].name,
+            "Kurunduwatta",
+        )
