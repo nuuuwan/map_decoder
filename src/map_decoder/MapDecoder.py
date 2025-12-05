@@ -175,13 +175,20 @@ class MapDecoder:
             reference_list=reference_list
         )
 
-        info_list = []
-        step = 3
-        for x in range(0, color_matrix.shape[1], step):
+        lat_max = max(ref["latlng"][0] for ref in reference_list)
+        lat_min = min(ref["latlng"][0] for ref in reference_list)
+        y_max_image = max(ref["xy"][1] for ref in reference_list)
+        y_min_image = min(ref["xy"][1] for ref in reference_list)
+        log.debug(f"{lat_min=}, {lat_max=}, {y_min_image=}, {y_max_image=}")
+        m_lat = (y_max_image - y_min_image) / (lat_max - lat_min)
+        log.debug(f"{m_lat=}")
+        step = int(m_lat * box_size_lat)
+        log.debug(f"{step=}")
 
+        info_list = []
+        for x in range(0, color_matrix.shape[1], step):
             if x < x_min or x > x_max:
                 continue
-
             p = x / color_matrix.shape[1]
             log.debug(f"{p:.2%}")
             for y in range(0, color_matrix.shape[0], step):
@@ -287,7 +294,7 @@ class MapDecoder:
             lngs,
             lats,
             c=colors,
-            s=10 / box_size_lat,
+            s=200 * box_size_lat,
             marker="s",
         )
 
