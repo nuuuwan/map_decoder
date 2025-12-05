@@ -30,16 +30,11 @@ class TestCase(unittest.TestCase):
         xys = [ref["xy"] for ref in reference_list]
         latlngs = [ref["latlng"] for ref in reference_list]
 
-        lat_params, lng_params = Poly2GeoMapper.fit(xys=xys, latlngs=latlngs)
-
+        params = Poly2GeoMapper.fit(xys=xys, latlngs=latlngs)
         for ref in reference_list:
             xy = ref["xy"]
             expected_latlng = ref["latlng"]
-            predicted_latlng = Poly2GeoMapper.transform(
-                xy, lat_params, lng_params
-            )
-            print(expected_latlng)
-            print(predicted_latlng)
+            predicted_latlng = Poly2GeoMapper.transform(xy, params)
             self.assertAlmostEqual(
                 expected_latlng[0], predicted_latlng[0], places=10
             )

@@ -139,15 +139,14 @@ class MapDecoder:
             min_saturation=min_saturation,
             color_background=color_background,
         )
-        info_list = []
 
-        step = 5
-
-        lat_params, lng_params = Poly2GeoMapper.fit(
+        params = Poly2GeoMapper.fit(
             xys=[ref["xy"] for ref in reference_list],
             latlngs=[ref["latlng"] for ref in reference_list],
         )
 
+        info_list = []
+        step = 3
         for x in range(0, color_matrix.shape[1], step):
             print(f"\t\t{x}/{color_matrix.shape[1]}", end="\r")
             for y in range(0, color_matrix.shape[0], step):
@@ -158,9 +157,7 @@ class MapDecoder:
                 if color == color_background:
                     continue
 
-                latlng = Poly2GeoMapper.transform(
-                    (x, y), lat_params, lng_params
-                )
+                latlng = Poly2GeoMapper.transform((x, y), params)
                 latlng = (
                     round(latlng[0], 6),
                     round(latlng[1], 6),

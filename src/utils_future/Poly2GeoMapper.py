@@ -22,11 +22,12 @@ class Poly2GeoMapper:
         lat_params, *_ = np.linalg.lstsq(A, lats, rcond=None)
         lng_params, *_ = np.linalg.lstsq(A, lngs, rcond=None)
 
-        log.debug(f"{lat_params=}, {lng_params=}")
-        return lat_params, lng_params
+        params = [lat_params, lng_params]
+        return params
 
     @staticmethod
-    def transform(xy: tuple, lat_params, lng_params):
+    def transform(xy: tuple, params: list[np.ndarray]):
+        lat_params, lng_params = params
         x, y = xy
         x = np.asarray(x)
         y = np.asarray(y)
