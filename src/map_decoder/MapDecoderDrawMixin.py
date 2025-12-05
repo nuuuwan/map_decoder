@@ -138,3 +138,47 @@ class MapDecoderDrawMixin:
         plt.savefig(temp_image_path, dpi=300, bbox_inches="tight")
         plt.close(fig)
         return Image.open(temp_image_path)
+
+    @staticmethod
+    def generate_image_for_ents(
+        ent_to_label_to_n: dict,
+        color_to_label: dict[tuple[int, int, int], str],
+        map_ent_type: EntType,
+    ) -> Image.Image:
+        plt.close()
+        fig, ax = plt.subplots(figsize=(10, 10))
+        label_to_color = {
+            label: color for color, label in color_to_label.items()
+        }
+
+        ents = Ent.list_from_type(map_ent_type)
+        for ent in ents:
+            if ent.id in ent_to_label_to_n:
+                label_to_n = ent_to_label_to_n[ent.id]
+                max_label = sorted(
+                    label_to_n.items(),
+                    key=lambda item: item[1],
+                    reverse=True,
+                )[0][0]
+                color = label_to_color[max_label]
+                color = "red"
+            else:
+                color = "white"
+
+            geo = ent.geo()
+            log.debug(f"{ent_id=}, {max_label=}, {color=}")
+
+            geo.plot(
+                ax=ax,
+                facecolor=color,
+                edgecolor="black",
+                linewidth=0.1,
+            )
+
+        MapDecoderDrawMixin.format_axes(ax)
+        temp_image_path = tempfile.NamedTemporaryFile(
+            suffix=".png", delete=False
+        ).name
+        plt.savefig(temp_image_path, dpi=300, bbox_inches="tight")
+        plt.close(fig)
+        return Image.open(temp_image_path)

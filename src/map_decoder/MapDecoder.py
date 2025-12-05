@@ -9,8 +9,29 @@ from map_decoder.MapDecoderImageMixin import MapDecoderImageMixin
 log = Log("MapDecoder")
 
 
+class MapDecoderEntMixin:
+    @staticmethod
+    def get_ent_to_label_to_n(info_list):
+        idx = {}
+        for info in info_list:
+            ent_id = info["ent_id"]
+            label = info["label"]
+
+            if ent_id not in idx:
+                idx[ent_id] = {}
+            if label not in idx[ent_id]:
+                idx[ent_id][label] = 0
+
+            idx[ent_id][label] += 1
+
+        return idx
+
+
 class MapDecoder(
-    MapDecoderImageMixin, MapDecoderGeoMixin, MapDecoderDrawMixin
+    MapDecoderImageMixin,
+    MapDecoderGeoMixin,
+    MapDecoderDrawMixin,
+    MapDecoderEntMixin,
 ):
 
     def __init__(self, pil_image):
@@ -66,9 +87,19 @@ class MapDecoder(
         most_common_colors = MapDecoder.get_most_common_colors(
             info_list=info_list
         )
+
+        ent_to_label_to_n = self.get_ent_to_label_to_n(info_list)
+
+        image_for_ents = MapDecoder.generate_image_for_ents(
+            ent_to_label_to_n=ent_to_label_to_n,
+            color_to_label=color_to_label,
+        )
+
         return (
             info_list,
             image_inspection,
             image_info_list,
             most_common_colors,
+            ent_to_label_to_n,
+            image_for_ents,
         )
