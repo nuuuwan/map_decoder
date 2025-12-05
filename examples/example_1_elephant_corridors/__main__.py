@@ -69,7 +69,7 @@ def main():
         color_map_boundaries=(0, 0, 0),
         color_background=(255, 255, 255),
         box_size_lat=0.05,
-        map_ent_type=EntType.DSD,
+        map_ent_type=EntType.GND,
         title="Elephant Corridors in Sri Lanka",
         color_to_label={
             (81, 174, 200): "Temporary Corridors",
@@ -87,21 +87,5 @@ def main():
     image_for_ents.save(os.path.join(DIR_THIS, "ents.png"))
 
 
-def main2():
-    info_list = JSONFile(os.path.join(DIR_THIS, "info_list.json")).read()
-    color_to_label = {
-        (81, 174, 200): "Temporary Corridors",
-        (20, 167, 85): "Permanent Corridors and Parks",
-    }
-    ent_to_label_to_n = MapDecoder.get_ent_to_label_to_n(info_list)
-    image_for_ents = MapDecoder.generate_image_for_ents(
-        ent_to_label_to_n=ent_to_label_to_n,
-        color_to_label=color_to_label,
-        map_ent_type=EntType.DSD,
-        title="Elephant Corridors in Sri Lanka",
-    )
-    image_for_ents.save(os.path.join(DIR_THIS, "ents.png"))
-
-
 if __name__ == "__main__":
-    main2()
+    main()
