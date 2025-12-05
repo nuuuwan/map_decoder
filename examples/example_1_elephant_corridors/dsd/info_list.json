@@ -1,0 +1,2484 @@
+[
+  {
+    "xy": [
+      104,
+      233
+    ],
+    "latlng": [
+      8.439898,
+      79.858918
+    ],
+    "ent_id": "LK-6206",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      104,
+      247
+    ],
+    "latlng": [
+      8.343055,
+      79.858522
+    ],
+    "ent_id": "LK-6206",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      118,
+      233
+    ],
+    "latlng": [
+      8.432957,
+      79.944348
+    ],
+    "ent_id": "LK-6206",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      118,
+      247
+    ],
+    "latlng": [
+      8.33583,
+      79.943831
+    ],
+    "ent_id": "LK-6206",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      118,
+      261
+    ],
+    "latlng": [
+      8.239135,
+      79.943599
+    ],
+    "ent_id": "LK-6209",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      132,
+      177
+    ],
+    "latlng": [
+      8.82105,
+      80.036625
+    ],
+    "ent_id": "LK-4212",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      132,
+      205
+    ],
+    "latlng": [
+      8.623204,
+      80.033358
+    ],
+    "ent_id": "LK-4215",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      132,
+      219
+    ],
+    "latlng": [
+      8.524928,
+      80.032151
+    ],
+    "ent_id": "LK-6206",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      132,
+      233
+    ],
+    "latlng": [
+      8.427085,
+      80.031229
+    ],
+    "ent_id": "LK-7139",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      132,
+      247
+    ],
+    "latlng": [
+      8.329674,
+      80.030591
+    ],
+    "ent_id": "LK-7139",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      132,
+      261
+    ],
+    "latlng": [
+      8.232694,
+      80.030238
+    ],
+    "ent_id": "LK-7139",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      132,
+      275
+    ],
+    "latlng": [
+      8.136147,
+      80.030168
+    ],
+    "ent_id": "LK-6209",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      132,
+      289
+    ],
+    "latlng": [
+      8.040031,
+      80.030384
+    ],
+    "ent_id": "LK-6209",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      132,
+      303
+    ],
+    "latlng": [
+      7.944348,
+      80.030883
+    ],
+    "ent_id": "LK-6224",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      146,
+      163
+    ],
+    "latlng": [
+      8.91724,
+      80.127622
+    ],
+    "ent_id": "LK-4206",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      146,
+      177
+    ],
+    "latlng": [
+      8.817385,
+      80.125441
+    ],
+    "ent_id": "LK-4209",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      146,
+      205
+    ],
+    "latlng": [
+      8.618969,
+      80.121932
+    ],
+    "ent_id": "LK-7112",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      146,
+      219
+    ],
+    "latlng": [
+      8.52041,
+      80.120604
+    ],
+    "ent_id": "LK-7112",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      146,
+      233
+    ],
+    "latlng": [
+      8.422282,
+      80.119561
+    ],
+    "ent_id": "LK-7139",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      146,
+      247
+    ],
+    "latlng": [
+      8.324586,
+      80.118802
+    ],
+    "ent_id": "LK-7139",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      160,
+      107
+    ],
+    "latlng": [
+      9.319807,
+      80.230064
+    ],
+    "ent_id": "LK-4512",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      160,
+      163
+    ],
+    "latlng": [
+      8.914928,
+      80.218011
+    ],
+    "ent_id": "LK-4209",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      160,
+      177
+    ],
+    "latlng": [
+      8.814788,
+      80.215708
+    ],
+    "ent_id": "LK-4209",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      160,
+      191
+    ],
+    "latlng": [
+      8.71508,
+      80.21369
+    ],
+    "ent_id": "LK-4312",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      160,
+      219
+    ],
+    "latlng": [
+      8.51696,
+      80.210508
+    ],
+    "ent_id": "LK-7112",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      160,
+      233
+    ],
+    "latlng": [
+      8.418548,
+      80.209343
+    ],
+    "ent_id": "LK-7112",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      174,
+      121
+    ],
+    "latlng": [
+      9.217549,
+      80.318827
+    ],
+    "ent_id": "LK-4403",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      174,
+      135
+    ],
+    "latlng": [
+      9.115829,
+      80.31555
+    ],
+    "ent_id": "LK-4403",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      174,
+      149
+    ],
+    "latlng": [
+      9.014541,
+      80.312558
+    ],
+    "ent_id": "LK-4406",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      174,
+      219
+    ],
+    "latlng": [
+      8.51458,
+      80.301862
+    ],
+    "ent_id": "LK-7115",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      174,
+      233
+    ],
+    "latlng": [
+      8.415883,
+      80.300576
+    ],
+    "ent_id": "LK-7115",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      188,
+      107
+    ],
+    "latlng": [
+      9.320665,
+      80.416162
+    ],
+    "ent_id": "LK-4412",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      188,
+      121
+    ],
+    "latlng": [
+      9.218228,
+      80.41248
+    ],
+    "ent_id": "LK-4412",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      202,
+      107
+    ],
+    "latlng": [
+      9.322697,
+      80.511387
+    ],
+    "ent_id": "LK-4409",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      202,
+      121
+    ],
+    "latlng": [
+      9.219976,
+      80.507584
+    ],
+    "ent_id": "LK-4412",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      202,
+      135
+    ],
+    "latlng": [
+      9.117687,
+      80.504064
+    ],
+    "ent_id": "LK-4412",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      202,
+      205
+    ],
+    "latlng": [
+      8.612722,
+      80.490734
+    ],
+    "ent_id": "LK-7109",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      216,
+      121
+    ],
+    "latlng": [
+      9.222792,
+      80.604138
+    ],
+    "ent_id": "LK-4412",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      216,
+      135
+    ],
+    "latlng": [
+      9.120219,
+      80.600498
+    ],
+    "ent_id": "LK-4303",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      216,
+      149
+    ],
+    "latlng": [
+      9.018078,
+      80.597142
+    ],
+    "ent_id": "LK-4303",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      216,
+      163
+    ],
+    "latlng": [
+      8.916369,
+      80.59407
+    ],
+    "ent_id": "LK-4303",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      216,
+      177
+    ],
+    "latlng": [
+      8.815091,
+      80.591283
+    ],
+    "ent_id": "LK-4309",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      216,
+      191
+    ],
+    "latlng": [
+      8.714246,
+      80.58878
+    ],
+    "ent_id": "LK-7106",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      216,
+      205
+    ],
+    "latlng": [
+      8.613833,
+      80.586562
+    ],
+    "ent_id": "LK-7109",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      230,
+      191
+    ],
+    "latlng": [
+      8.71671,
+      80.686179
+    ],
+    "ent_id": "LK-7106",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      230,
+      205
+    ],
+    "latlng": [
+      8.616012,
+      80.683839
+    ],
+    "ent_id": "LK-7106",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      230,
+      219
+    ],
+    "latlng": [
+      8.515746,
+      80.681784
+    ],
+    "ent_id": "LK-7121",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      230,
+      289
+    ],
+    "latlng": [
+      8.020897,
+      80.675773
+    ],
+    "ent_id": "LK-7157",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      230,
+      331
+    ],
+    "latlng": [
+      7.729171,
+      80.675579
+    ],
+    "ent_id": "LK-2209",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      230,
+      345
+    ],
+    "latlng": [
+      7.632793,
+      80.676084
+    ],
+    "ent_id": "LK-2209",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      230,
+      513
+    ],
+    "latlng": [
+      6.50995,
+      80.704316
+    ],
+    "ent_id": "LK-9145",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      230,
+      527
+    ],
+    "latlng": [
+      6.419188,
+      80.708517
+    ],
+    "ent_id": "LK-9151",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      230,
+      541
+    ],
+    "latlng": [
+      6.328857,
+      80.713002
+    ],
+    "ent_id": "LK-9151",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      230,
+      555
+    ],
+    "latlng": [
+      6.238959,
+      80.717772
+    ],
+    "ent_id": "LK-3324",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      230,
+      569
+    ],
+    "latlng": [
+      6.149492,
+      80.722827
+    ],
+    "ent_id": "LK-3321",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      244,
+      233
+    ],
+    "latlng": [
+      8.418592,
+      80.778499
+    ],
+    "ent_id": "LK-7121",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      244,
+      247
+    ],
+    "latlng": [
+      8.318906,
+      80.776891
+    ],
+    "ent_id": "LK-7127",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      244,
+      261
+    ],
+    "latlng": [
+      8.219652,
+      80.775568
+    ],
+    "ent_id": "LK-7157",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      244,
+      275
+    ],
+    "latlng": [
+      8.120829,
+      80.774529
+    ],
+    "ent_id": "LK-7203",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      244,
+      289
+    ],
+    "latlng": [
+      8.022439,
+      80.773774
+    ],
+    "ent_id": "LK-7203",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      244,
+      303
+    ],
+    "latlng": [
+      7.924481,
+      80.773304
+    ],
+    "ent_id": "LK-2206",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      244,
+      331
+    ],
+    "latlng": [
+      7.72986,
+      80.773217
+    ],
+    "ent_id": "LK-7218",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      244,
+      345
+    ],
+    "latlng": [
+      7.633198,
+      80.7736
+    ],
+    "ent_id": "LK-2209",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      244,
+      499
+    ],
+    "latlng": [
+      6.598421,
+      80.796581
+    ],
+    "ent_id": "LK-9118",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      244,
+      513
+    ],
+    "latlng": [
+      6.506943,
+      80.800377
+    ],
+    "ent_id": "LK-9145",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      244,
+      583
+    ],
+    "latlng": [
+      6.056028,
+      80.82362
+    ],
+    "ent_id": "LK-3333",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      258,
+      247
+    ],
+    "latlng": [
+      8.32237,
+      80.876706
+    ],
+    "ent_id": "LK-7124",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      258,
+      261
+    ],
+    "latlng": [
+      8.222831,
+      80.875262
+    ],
+    "ent_id": "LK-7203",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      258,
+      303
+    ],
+    "latlng": [
+      7.926808,
+      80.872634
+    ],
+    "ent_id": "LK-7218",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      258,
+      317
+    ],
+    "latlng": [
+      7.828997,
+      80.872327
+    ],
+    "ent_id": "LK-7218",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      258,
+      345
+    ],
+    "latlng": [
+      7.634672,
+      80.872566
+    ],
+    "ent_id": "LK-2224",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      258,
+      527
+    ],
+    "latlng": [
+      6.413673,
+      80.901847
+    ],
+    "ent_id": "LK-8233",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      272,
+      219
+    ],
+    "latlng": [
+      8.527845,
+      80.981957
+    ],
+    "ent_id": "LK-5318",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      272,
+      233
+    ],
+    "latlng": [
+      8.427158,
+      80.979822
+    ],
+    "ent_id": "LK-5321",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      272,
+      261
+    ],
+    "latlng": [
+      8.22708,
+      80.976406
+    ],
+    "ent_id": "LK-7206",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      272,
+      345
+    ],
+    "latlng": [
+      7.637214,
+      80.972983
+    ],
+    "ent_id": "LK-2227",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      272,
+      499
+    ],
+    "latlng": [
+      6.596182,
+      80.993298
+    ],
+    "ent_id": "LK-8230",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      286,
+      345
+    ],
+    "latlng": [
+      7.640826,
+      81.074851
+    ],
+    "ent_id": "LK-5203",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      286,
+      359
+    ],
+    "latlng": [
+      7.543742,
+      81.075155
+    ],
+    "ent_id": "LK-5203",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      286,
+      373
+    ],
+    "latlng": [
+      7.447091,
+      81.075743
+    ],
+    "ent_id": "LK-8103",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      286,
+      387
+    ],
+    "latlng": [
+      7.350871,
+      81.076615
+    ],
+    "ent_id": "LK-8106",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      286,
+      499
+    ],
+    "latlng": [
+      6.596666,
+      81.093832
+    ],
+    "ent_id": "LK-8221",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      286,
+      513
+    ],
+    "latlng": [
+      6.504334,
+      81.097264
+    ],
+    "ent_id": "LK-8221",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      286,
+      541
+    ],
+    "latlng": [
+      6.320966,
+      81.104981
+    ],
+    "ent_id": "LK-3306",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      286,
+      555
+    ],
+    "latlng": [
+      6.229931,
+      81.109266
+    ],
+    "ent_id": "LK-3312",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      286,
+      569
+    ],
+    "latlng": [
+      6.139327,
+      81.113836
+    ],
+    "ent_id": "LK-3312",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      300,
+      275
+    ],
+    "latlng": [
+      8.138825,
+      81.181523
+    ],
+    "ent_id": "LK-7209",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      300,
+      289
+    ],
+    "latlng": [
+      8.039297,
+      81.180284
+    ],
+    "ent_id": "LK-7210",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      300,
+      303
+    ],
+    "latlng": [
+      7.940202,
+      81.179329
+    ],
+    "ent_id": "LK-7210",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      300,
+      317
+    ],
+    "latlng": [
+      7.841538,
+      81.178658
+    ],
+    "ent_id": "LK-7212",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      300,
+      345
+    ],
+    "latlng": [
+      7.645506,
+      81.17817
+    ],
+    "ent_id": "LK-5203",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      300,
+      359
+    ],
+    "latlng": [
+      7.548139,
+      81.178352
+    ],
+    "ent_id": "LK-8103",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      300,
+      373
+    ],
+    "latlng": [
+      7.451203,
+      81.178819
+    ],
+    "ent_id": "LK-8103",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      300,
+      387
+    ],
+    "latlng": [
+      7.354699,
+      81.17957
+    ],
+    "ent_id": "LK-8106",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      300,
+      485
+    ],
+    "latlng": [
+      6.691267,
+      81.192791
+    ],
+    "ent_id": "LK-8224",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      300,
+      499
+    ],
+    "latlng": [
+      6.598219,
+      81.195817
+    ],
+    "ent_id": "LK-8224",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      300,
+      513
+    ],
+    "latlng": [
+      6.505603,
+      81.199128
+    ],
+    "ent_id": "LK-8221",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      300,
+      541
+    ],
+    "latlng": [
+      6.321666,
+      81.206602
+    ],
+    "ent_id": "LK-3306",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      314,
+      317
+    ],
+    "latlng": [
+      7.847856,
+      81.283669
+    ],
+    "ent_id": "LK-5110",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      314,
+      331
+    ],
+    "latlng": [
+      7.74934,
+      81.283162
+    ],
+    "ent_id": "LK-5112",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      314,
+      345
+    ],
+    "latlng": [
+      7.651256,
+      81.282938
+    ],
+    "ent_id": "LK-5209",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      314,
+      373
+    ],
+    "latlng": [
+      7.456384,
+      81.283345
+    ],
+    "ent_id": "LK-5206",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      314,
+      387
+    ],
+    "latlng": [
+      7.359595,
+      81.283975
+    ],
+    "ent_id": "LK-5206",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      314,
+      401
+    ],
+    "latlng": [
+      7.263239,
+      81.28489
+    ],
+    "ent_id": "LK-5206",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      314,
+      415
+    ],
+    "latlng": [
+      7.167315,
+      81.286088
+    ],
+    "ent_id": "LK-8203",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      314,
+      485
+    ],
+    "latlng": [
+      6.694173,
+      81.296348
+    ],
+    "ent_id": "LK-8224",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      314,
+      499
+    ],
+    "latlng": [
+      6.60084,
+      81.299253
+    ],
+    "ent_id": "LK-8224",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      314,
+      513
+    ],
+    "latlng": [
+      6.50794,
+      81.302442
+    ],
+    "ent_id": "LK-8227",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      314,
+      541
+    ],
+    "latlng": [
+      6.323435,
+      81.309674
+    ],
+    "ent_id": "LK-3309",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      328,
+      303
+    ],
+    "latlng": [
+      7.954476,
+      81.391044
+    ],
+    "ent_id": "LK-5110",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      328,
+      373
+    ],
+    "latlng": [
+      7.462633,
+      81.389322
+    ],
+    "ent_id": "LK-5209",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      328,
+      387
+    ],
+    "latlng": [
+      7.365561,
+      81.389831
+    ],
+    "ent_id": "LK-8206",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      328,
+      401
+    ],
+    "latlng": [
+      7.26892,
+      81.390624
+    ],
+    "ent_id": "LK-8206",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      328,
+      415
+    ],
+    "latlng": [
+      7.172711,
+      81.391702
+    ],
+    "ent_id": "LK-8203",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      328,
+      429
+    ],
+    "latlng": [
+      7.076935,
+      81.393064
+    ],
+    "ent_id": "LK-8206",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      328,
+      443
+    ],
+    "latlng": [
+      6.98159,
+      81.39471
+    ],
+    "ent_id": "LK-8206",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      328,
+      471
+    ],
+    "latlng": [
+      6.792197,
+      81.398856
+    ],
+    "ent_id": "LK-8215",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      328,
+      485
+    ],
+    "latlng": [
+      6.698148,
+      81.401355
+    ],
+    "ent_id": "LK-8224",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      328,
+      513
+    ],
+    "latlng": [
+      6.511346,
+      81.407207
+    ],
+    "ent_id": "LK-8227",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      328,
+      527
+    ],
+    "latlng": [
+      6.418593,
+      81.41056
+    ],
+    "ent_id": "LK-8227",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      328,
+      541
+    ],
+    "latlng": [
+      6.326272,
+      81.414197
+    ],
+    "ent_id": "LK-3309",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      342,
+      387
+    ],
+    "latlng": [
+      7.372595,
+      81.497138
+    ],
+    "ent_id": "LK-5212",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      342,
+      401
+    ],
+    "latlng": [
+      7.27567,
+      81.49781
+    ],
+    "ent_id": "LK-8206",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      342,
+      415
+    ],
+    "latlng": [
+      7.179177,
+      81.498766
+    ],
+    "ent_id": "LK-8206",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      342,
+      429
+    ],
+    "latlng": [
+      7.083116,
+      81.500006
+    ],
+    "ent_id": "LK-8212",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      342,
+      443
+    ],
+    "latlng": [
+      6.987487,
+      81.501532
+    ],
+    "ent_id": "LK-8212",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      342,
+      457
+    ],
+    "latlng": [
+      6.89229,
+      81.503341
+    ],
+    "ent_id": "LK-8212",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      342,
+      471
+    ],
+    "latlng": [
+      6.797525,
+      81.505435
+    ],
+    "ent_id": "LK-8212",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      342,
+      485
+    ],
+    "latlng": [
+      6.703192,
+      81.507813
+    ],
+    "ent_id": "LK-8212",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      342,
+      513
+    ],
+    "latlng": [
+      6.515821,
+      81.513423
+    ],
+    "ent_id": "LK-3309",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      342,
+      527
+    ],
+    "latlng": [
+      6.422784,
+      81.516654
+    ],
+    "ent_id": "LK-3309",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      356,
+      401
+    ],
+    "latlng": [
+      7.283489,
+      81.606445
+    ],
+    "ent_id": "LK-5212",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      356,
+      429
+    ],
+    "latlng": [
+      7.090366,
+      81.6084
+    ],
+    "ent_id": "LK-5242",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      356,
+      443
+    ],
+    "latlng": [
+      6.994453,
+      81.609804
+    ],
+    "ent_id": "LK-8212",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      356,
+      457
+    ],
+    "latlng": [
+      6.898971,
+      81.611492
+    ],
+    "ent_id": "LK-8212",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      356,
+      471
+    ],
+    "latlng": [
+      6.803922,
+      81.613465
+    ],
+    "ent_id": "LK-8212",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      356,
+      485
+    ],
+    "latlng": [
+      6.709304,
+      81.615722
+    ],
+    "ent_id": "LK-8212",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      356,
+      499
+    ],
+    "latlng": [
+      6.615119,
+      81.618263
+    ],
+    "ent_id": "LK-5251",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      356,
+      513
+    ],
+    "latlng": [
+      6.521365,
+      81.621089
+    ],
+    "ent_id": "LK-3309",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      370,
+      401
+    ],
+    "latlng": [
+      7.292377,
+      81.716532
+    ],
+    "ent_id": "LK-5218",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      370,
+      443
+    ],
+    "latlng": [
+      7.002488,
+      81.719527
+    ],
+    "ent_id": "LK-5245",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      370,
+      457
+    ],
+    "latlng": [
+      6.906722,
+      81.721094
+    ],
+    "ent_id": "LK-5251",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      370,
+      471
+    ],
+    "latlng": [
+      6.811388,
+      81.722945
+    ],
+    "ent_id": "LK-5251",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      370,
+      485
+    ],
+    "latlng": [
+      6.716486,
+      81.725081
+    ],
+    "ent_id": "LK-5251",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  },
+  {
+    "xy": [
+      370,
+      499
+    ],
+    "latlng": [
+      6.622016,
+      81.727501
+    ],
+    "ent_id": "LK-5251",
+    "label": "Permanent Corridors and Parks",
+    "color": [
+      20,
+      167,
+      85
+    ]
+  },
+  {
+    "xy": [
+      384,
+      457
+    ],
+    "latlng": [
+      6.915541,
+      81.832146
+    ],
+    "ent_id": "LK-5248",
+    "label": "Temporary Corridors",
+    "color": [
+      81,
+      174,
+      200
+    ]
+  }
+]

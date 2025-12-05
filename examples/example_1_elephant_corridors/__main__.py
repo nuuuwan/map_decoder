@@ -7,6 +7,7 @@ from map_decoder import MapDecoder
 
 log = Log("examples")
 
+ENT_TYPE = EntType.DSD
 DIR_THIS = os.path.join("examples", "example_1_elephant_corridors")
 
 
@@ -69,7 +70,7 @@ def main():
         color_map_boundaries=(0, 0, 0),
         color_background=(255, 255, 255),
         box_size_lat=0.1,
-        map_ent_type=EntType.DSD,
+        map_ent_type=ENT_TYPE,
         title="Elephant Corridors in Sri Lanka",
         color_to_label={
             (81, 174, 200): "Temporary Corridors",
@@ -77,14 +78,20 @@ def main():
         },
     )
 
-    JSONFile(os.path.join(DIR_THIS, "info_list.json")).write(info_list)
-    image_inspection.save(os.path.join(DIR_THIS, "inspection.png"))
-    image_info_list.save(os.path.join(DIR_THIS, "info_list.png"))
+    dir_output = os.path.join(
+        DIR_THIS,
+        ENT_TYPE.name,
+    )
+    os.makedirs(dir_output, exist_ok=True)
+
+    JSONFile(os.path.join(dir_output, "info_list.json")).write(info_list)
+    image_inspection.save(os.path.join(dir_output, "inspection.png"))
+    image_info_list.save(os.path.join(dir_output, "info_list.png"))
     log.info(f"{most_common_colors=}")
-    JSONFile(os.path.join(DIR_THIS, "ent_to_label_to_n.json")).write(
+    JSONFile(os.path.join(dir_output, "ent_to_label_to_n.json")).write(
         ent_to_label_to_n
     )
-    image_for_ents.save(os.path.join(DIR_THIS, "ents.png"))
+    image_for_ents.save(os.path.join(dir_output, "ents.png"))
 
 
 if __name__ == "__main__":
