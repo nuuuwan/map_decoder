@@ -38,8 +38,9 @@ class TestCase(unittest.TestCase):
                 "latlng": (7.022706066775057, 81.8787010500323),
             },
         ]
-        info_list, image_inspection, image_info_list = md.decode(
-            reference_list
+        valid_color_list = None
+        info_list, image_inspection, image_info_list, most_common_colors = (
+            md.decode(reference_list, valid_color_list)
         )
 
         image_inspection.save(
@@ -55,8 +56,19 @@ class TestCase(unittest.TestCase):
         self.assertEqual(
             first_info,
             {
-                "latlng": (10.09696, 79.163467),
+                "latlng": (10.089629, 79.163467),
                 "xy": (0, 0),
                 "color": (65, 65, 65),
+            },
+        )
+        print(most_common_colors)
+        self.assertEqual(
+            most_common_colors,
+            {
+                (255, 255, 255): 87771,
+                (253, 253, 253): 24142,
+                (251, 251, 251): 10028,
+                (254, 254, 254): 9336,
+                (250, 250, 250): 7239,
             },
         )

@@ -82,7 +82,7 @@ class MapDecoder:
         return (m_lat, c_lat), (m_lng, c_lng)
 
     def __get_latlng_color_info_list__(
-        self, reference_list: list[dict]
+        self, reference_list: list[dict], valid_color_list: list[tuple]
     ) -> list[dict]:
         color_matrix = self.color_matrix
         info_list = []
@@ -92,6 +92,8 @@ class MapDecoder:
         for x in range(color_matrix.shape[1]):
             for y in range(color_matrix.shape[0]):
                 color = tuple((color_matrix[y, x] * 255).astype(int))
+                if valid_color_list and color not in valid_color_list:
+                    continue
                 lat = round(y * m_lat + c_lat, 6)
                 lng = round(x * m_lng + c_lng, 6)
                 info_list.append(
@@ -99,8 +101,28 @@ class MapDecoder:
                 )
         return info_list
 
+    @staticmethod
+    def get_most_common_colors(
+        info_list: list[dict], n_limit: int = 5
+    ) -> dict[tuple, int]:
+        color_count = {}
+        for info in info_list:
+            color = info["color"]
+            if color not in color_count:
+                color_count[color] = 0
+            color_count[color] += 1
+        color_count = dict(
+            sorted(
+                color_count.items(),
+                key=lambda item: item[1],
+                reverse=True,
+            )[:n_limit]
+        )
+        return color_count
+
     def __generate_info_list_image__(
-        self, info_list: list[dict]
+        self,
+        info_list: list[dict],
     ) -> Image.Image:
         plt.close()
         lats = [info["latlng"][0] for info in info_list]
@@ -129,8 +151,19 @@ class MapDecoder:
         plt.close(fig)
         return Image.open(temp_image_path)
 
-    def decode(self, reference_list: list[dict]) -> Image.Image:
-        info_list = self.__get_latlng_color_info_list__(reference_list)
+    def decode(
+        self, reference_list: list[dict], valid_color_list: list[tuple]
+    ) -> Image.Image:
+        info_list = self.__get_latlng_color_info_list__(
+            reference_list, valid_color_list
+        )
         image_info_list = self.__generate_info_list_image__(info_list)
         image_inspection = self.__generate_inspection_image__(reference_list)
-        return info_list, image_inspection, image_info_list
+
+        most_common_colors = self.get_most_common_colors(info_list)
+        return (
+            info_list,
+            image_inspection,
+            image_info_list,
+            most_common_colors,
+        )
