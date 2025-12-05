@@ -103,7 +103,7 @@ class MapDecoder:
 
     @staticmethod
     def get_most_common_colors(
-        info_list: list[dict], n_limit: int = 5
+        info_list: list[dict], min_p: float = 0.05
     ) -> dict[tuple, int]:
         color_count = {}
         for info in info_list:
@@ -111,14 +111,24 @@ class MapDecoder:
             if color not in color_count:
                 color_count[color] = 0
             color_count[color] += 1
-        color_count = dict(
+        n = len(info_list)
+        n_limit = int(n * min_p)
+        color_p_count = dict(
+            {
+                k: round(v / n, 4)
+                for k, v in color_count.items()
+                if v >= n_limit
+            }
+        )
+
+        color_p_count = dict(
             sorted(
-                color_count.items(),
+                color_p_count.items(),
                 key=lambda item: item[1],
                 reverse=True,
             )[:n_limit]
         )
-        return color_count
+        return color_p_count
 
     def __generate_info_list_image__(
         self,

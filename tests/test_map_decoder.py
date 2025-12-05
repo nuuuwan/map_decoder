@@ -64,11 +64,5 @@ class TestCase(unittest.TestCase):
         print(most_common_colors)
         self.assertEqual(
             most_common_colors,
-            {
-                (255, 255, 255): 87771,
-                (253, 253, 253): 24142,
-                (251, 251, 251): 10028,
-                (254, 254, 254): 9336,
-                (250, 250, 250): 7239,
-            },
+            {(255, 255, 255): 0.295, (253, 253, 253): 0.0811},
         )
