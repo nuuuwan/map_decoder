@@ -3,28 +3,11 @@ from PIL import Image
 from utils import Log
 
 from map_decoder.MapDecoderDrawMixin import MapDecoderDrawMixin
+from map_decoder.MapDecoderEntMixin import MapDecoderEntMixin
 from map_decoder.MapDecoderGeoMixin import MapDecoderGeoMixin
 from map_decoder.MapDecoderImageMixin import MapDecoderImageMixin
 
 log = Log("MapDecoder")
-
-
-class MapDecoderEntMixin:
-    @staticmethod
-    def get_ent_to_label_to_n(info_list):
-        idx = {}
-        for info in info_list:
-            ent_id = info["ent_id"]
-            label = info["label"]
-
-            if ent_id not in idx:
-                idx[ent_id] = {}
-            if label not in idx[ent_id]:
-                idx[ent_id][label] = 0
-
-            idx[ent_id][label] += 1
-
-        return idx
 
 
 class MapDecoder(
@@ -93,6 +76,8 @@ class MapDecoder(
         image_for_ents = MapDecoder.generate_image_for_ents(
             ent_to_label_to_n=ent_to_label_to_n,
             color_to_label=color_to_label,
+            map_ent_type=map_ent_type,
+            title=title,
         )
 
         return (

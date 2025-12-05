@@ -144,6 +144,7 @@ class MapDecoderDrawMixin:
         ent_to_label_to_n: dict,
         color_to_label: dict[tuple[int, int, int], str],
         map_ent_type: EntType,
+        title: str,
     ) -> Image.Image:
         plt.close()
         fig, ax = plt.subplots(figsize=(10, 10))
@@ -160,13 +161,13 @@ class MapDecoderDrawMixin:
                     key=lambda item: item[1],
                     reverse=True,
                 )[0][0]
-                color = label_to_color[max_label]
-                color = "red"
+                color_rgb = label_to_color[max_label]
+                color = [c / 255 for c in color_rgb]
+
             else:
                 color = "white"
 
             geo = ent.geo()
-            log.debug(f"{ent_id=}, {max_label=}, {color=}")
 
             geo.plot(
                 ax=ax,
@@ -176,6 +177,7 @@ class MapDecoderDrawMixin:
             )
 
         MapDecoderDrawMixin.format_axes(ax)
+        plt.title(title)
         temp_image_path = tempfile.NamedTemporaryFile(
             suffix=".png", delete=False
         ).name

@@ -7,10 +7,12 @@ from map_decoder import MapDecoder
 
 log = Log("examples")
 
+DIR_THIS = os.path.join("examples", "example_1_elephant_corridors")
+
 
 def main():
-    dir_self = os.path.join("examples", "example_1_elephant_corridors")
-    image_path = os.path.join(dir_self, "lk-elephant-corridors.png")
+
+    image_path = os.path.join(DIR_THIS, "lk-elephant-corridors.png")
 
     md = MapDecoder.open(image_path)
     reference_list = [
@@ -52,31 +54,54 @@ def main():
         },
     ]
 
-    info_list, image_inspection, image_info_list, most_common_colors = (
-        md.decode(
-            reference_list=reference_list,
-            min_saturation=0.1,
-            n_clusters=3,
-            color_reference_point=(255, 0, 0),
-            color_map_boundaries=(0, 0, 0),
-            color_background=(255, 255, 255),
-            box_size_lat=0.05,
-            map_ent_type=EntType.DSD,
-            title="Elephant Corridors in Sri Lanka",
-            color_to_label={
-                (81, 174, 200): "Temporary Corridors",
-                (20, 167, 85): "Permanent Corridors and Parks",
-            },
-        )
+    (
+        info_list,
+        image_inspection,
+        image_info_list,
+        most_common_colors,
+        ent_to_label_to_n,
+        image_for_ents,
+    ) = md.decode(
+        reference_list=reference_list,
+        min_saturation=0.1,
+        n_clusters=3,
+        color_reference_point=(255, 0, 0),
+        color_map_boundaries=(0, 0, 0),
+        color_background=(255, 255, 255),
+        box_size_lat=0.05,
+        map_ent_type=EntType.DSD,
+        title="Elephant Corridors in Sri Lanka",
+        color_to_label={
+            (81, 174, 200): "Temporary Corridors",
+            (20, 167, 85): "Permanent Corridors and Parks",
+        },
     )
 
-    JSONFile(os.path.join(dir_self, "info_list.json")).write(info_list)
-    image_inspection.save(os.path.join(dir_self, "inspection.png"))
-    image_info_list.save(os.path.join(dir_self, "info_list.png"))
+    JSONFile(os.path.join(DIR_THIS, "info_list.json")).write(info_list)
+    image_inspection.save(os.path.join(DIR_THIS, "inspection.png"))
+    image_info_list.save(os.path.join(DIR_THIS, "info_list.png"))
     log.info(f"{most_common_colors=}")
-    first_info = info_list[0]
-    log.info(f"{first_info=}")
+    JSONFile(os.path.join(DIR_THIS, "ent_to_label_to_n.json")).write(
+        ent_to_label_to_n
+    )
+    image_for_ents.save(os.path.join(DIR_THIS, "ents.png"))
+
+
+def main2():
+    info_list = JSONFile(os.path.join(DIR_THIS, "info_list.json")).read()
+    color_to_label = {
+        (81, 174, 200): "Temporary Corridors",
+        (20, 167, 85): "Permanent Corridors and Parks",
+    }
+    ent_to_label_to_n = MapDecoder.get_ent_to_label_to_n(info_list)
+    image_for_ents = MapDecoder.generate_image_for_ents(
+        ent_to_label_to_n=ent_to_label_to_n,
+        color_to_label=color_to_label,
+        map_ent_type=EntType.DSD,
+        title="Elephant Corridors in Sri Lanka",
+    )
+    image_for_ents.save(os.path.join(DIR_THIS, "ents.png"))
 
 
 if __name__ == "__main__":
-    main()
+    main2()
