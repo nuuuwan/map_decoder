@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from gig import Ent, EntType
 from PIL import Image, ImageDraw, ImageFont
+from sklearn.cluster import KMeans
 from utils import Log
 
 log = Log("MapDecoder")
@@ -20,22 +21,39 @@ class MapDecoder:
         self.pil_image = pil_image
 
     @staticmethod
-    def quantize_color_array(
-        color_array: np.ndarray, q: int = 16
+    def cluster_colors(
+        color_array: np.ndarray,
+        n_clusters: int,
     ) -> np.ndarray:
-        return np.int16(color_array / q) * q
+
+        original_shape = color_array.shape
+        pixels = color_array.reshape(-1, 3)
+
+        kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
+        kmeans.fit(pixels)
+
+        clustered_pixels = kmeans.cluster_centers_[kmeans.labels_]
+
+        clustered_array = clustered_pixels.reshape(original_shape)
+
+        return clustered_array.astype(np.float32)
 
     @staticmethod
-    def get_color_matrix(pil_image) -> np.ndarray:
+    def get_color_matrix(
+        pil_image: Image.Image,
+        n_clusters: int,
+    ) -> np.ndarray:
         image_rgb = pil_image.convert("RGB")
         color_array = np.array(image_rgb, dtype=np.float32)
-        color_array = MapDecoder.quantize_color_array(color_array)
+        color_array = MapDecoder.cluster_colors(color_array, n_clusters)
         color_matrix = color_array / 255.0
         return color_matrix
 
     @staticmethod
     def generate_inspection_image(
-        pil_image: Image.Image, reference_list: list[dict]
+        pil_image: Image.Image,
+        reference_list: list[dict],
+        color_reference_point: tuple[int, int, int],
     ) -> Image.Image:
         result_image = pil_image.copy()
         draw = ImageDraw.Draw(result_image)
@@ -53,9 +71,7 @@ class MapDecoder:
             radius = 5
             draw.ellipse(
                 [(x - radius, y - radius), (x + radius, y + radius)],
-                fill="red",
-                outline="black",
-                width=2,
+                fill=color_reference_point,
             )
 
             text = f"{label}\n{latlng}"
@@ -96,9 +112,10 @@ class MapDecoder:
         pil_image: Image.Image,
         reference_list: list[dict],
         valid_color_list: list[tuple],
-        min_saturation: float = 0.2,
+        min_saturation: float,
+        n_clusters: int,
     ) -> list[dict]:
-        color_matrix = MapDecoder.get_color_matrix(pil_image)
+        color_matrix = MapDecoder.get_color_matrix(pil_image, n_clusters)
         info_list = []
         (m_lat, c_lat), (m_lng, c_lng) = (
             MapDecoder.get_latlng_transform_coefficients(reference_list)
@@ -126,7 +143,7 @@ class MapDecoder:
 
     @staticmethod
     def get_most_common_colors(
-        info_list: list[dict], min_p: float = 0.05
+        info_list: list[dict], min_p: float = 0.01
     ) -> dict[tuple, int]:
         color_count = {}
         for info in info_list:
@@ -156,6 +173,7 @@ class MapDecoder:
     @staticmethod
     def generate_info_list_image(
         info_list: list[dict],
+        color_map_boundaries: tuple[int, int, int],
     ) -> Image.Image:
         plt.close()
         lats = [info["latlng"][0] for info in info_list]
@@ -175,7 +193,12 @@ class MapDecoder:
         district_ents = Ent.list_from_type(EntType.DISTRICT)
         for ent in district_ents:
             geo = ent.geo()
-            geo.plot(ax=ax, facecolor="none", edgecolor="red", linewidth=0.5)
+            geo.plot(
+                ax=ax,
+                facecolor="none",
+                edgecolor=color_map_boundaries,
+                linewidth=1,
+            )
 
         temp_image_path = tempfile.NamedTemporaryFile(
             suffix=".png", delete=False
@@ -189,13 +212,22 @@ class MapDecoder:
         reference_list: list[dict],
         valid_color_list: list[tuple],
         min_saturation: float = 0.1,
+        n_clusters: int = 16,
+        color_reference_point: tuple[int, int, int] = (255, 0, 0),
+        color_map_boundaries: tuple[int, int, int] = (0, 0, 0),
     ) -> Image.Image:
         info_list = MapDecoder.get_latlng_color_info_list(
-            self.pil_image, reference_list, valid_color_list, min_saturation
+            self.pil_image,
+            reference_list,
+            valid_color_list,
+            min_saturation,
+            n_clusters,
         )
-        image_info_list = MapDecoder.generate_info_list_image(info_list)
+        image_info_list = MapDecoder.generate_info_list_image(
+            info_list, color_map_boundaries
+        )
         image_inspection = MapDecoder.generate_inspection_image(
-            self.pil_image, reference_list
+            self.pil_image, reference_list, color_reference_point
         )
 
         most_common_colors = MapDecoder.get_most_common_colors(info_list)

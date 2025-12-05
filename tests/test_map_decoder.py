@@ -11,10 +11,10 @@ TEST_MAP_DECODER = MapDecoder.open(
 class TestCase(unittest.TestCase):
     def test_color_matrix(self):
         md = TEST_MAP_DECODER
-        cm = md.get_color_matrix(md.pil_image)
+        cm = md.get_color_matrix(md.pil_image, n_clusters=16)
         self.assertEqual(cm.shape, (654, 455, 3))
         first_item = tuple((cm[0, 0] * 255).astype(int))
-        self.assertEqual(first_item, (64, 64, 64))
+        self.assertEqual(first_item, (82, 85, 84))
 
     def test_decode(self):
         md = TEST_MAP_DECODER
@@ -52,18 +52,26 @@ class TestCase(unittest.TestCase):
             os.path.join("tests", "output", "test_decode_info_list.png")
         )
 
-        self.assertEqual(len(info_list), 34_003)
+        self.assertEqual(len(info_list), 29153)
         first_info = info_list[0]
         print(first_info)
         self.assertEqual(
             first_info,
             {
-                "latlng": (6.111115, 79.163467),
-                "xy": (0, 579),
-                "color": (96, 96, 128),
+                "latlng": (6.042402, 79.274861),
+                "xy": (16, 589),
+                "color": (186, 232, 235),
             },
         )
         print(most_common_colors)
         self.assertEqual(
-            most_common_colors, {(0, 160, 80): 0.0986, (0, 160, 64): 0.0582}
+            most_common_colors,
+            {
+                (10, 171, 80): 0.3755,
+                (47, 171, 220): 0.2148,
+                (73, 164, 192): 0.1436,
+                (57, 160, 105): 0.0982,
+                (186, 232, 235): 0.0852,
+                (132, 197, 202): 0.0827,
+            },
         )
