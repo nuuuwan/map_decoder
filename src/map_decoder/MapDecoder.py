@@ -12,13 +12,14 @@ log = Log("MapDecoder")
 class MapDecoder(
     MapDecoderImageMixin, MapDecoderGeoMixin, MapDecoderDrawMixin
 ):
+
+    def __init__(self, pil_image):
+        self.pil_image = pil_image
+
     @classmethod
     def open(cls, filepath: str) -> "MapDecoder":
         pil_image = Image.open(filepath)
         return cls(pil_image)
-
-    def __init__(self, pil_image):
-        self.pil_image = pil_image
 
     def decode(
         self,
@@ -33,15 +34,20 @@ class MapDecoder(
         title: str,
         color_to_label: dict[tuple, str] = None,
     ) -> Image.Image:
-        info_list = MapDecoder.get_latlng_color_info_list(
+        color_matrix = MapDecoder.get_color_matrix(
             pil_image=self.pil_image,
-            reference_list=reference_list,
-            min_saturation=min_saturation,
             n_clusters=n_clusters,
+            min_saturation=min_saturation,
+            color_background=color_background,
+        )
+
+        info_list = MapDecoder.get_latlng_color_info_list(
+            reference_list=reference_list,
             color_background=color_background,
             box_size_lat=box_size_lat,
             map_ent_type=map_ent_type,
             color_to_label=color_to_label,
+            color_matrix=color_matrix,
         )
         image_info_list = MapDecoder.generate_info_list_image(
             info_list=info_list,

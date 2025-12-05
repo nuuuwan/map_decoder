@@ -1,6 +1,5 @@
 import numpy as np
 from gig import EntType
-from PIL import Image
 from utils import Log
 
 from gig_future import EntFuture
@@ -52,10 +51,11 @@ class MapDecoderGeoMixin:
         return step
 
     @staticmethod
-    def get_info(
+    def get_info(  # noqa: CFQ004
         x: int,
         y: int,
         c: np.ndarray,
+        n: int,
         color_background: tuple[int, int, int],
         params: dict,
         color_to_label: dict[tuple, str],
@@ -89,26 +89,20 @@ class MapDecoderGeoMixin:
             label=label,
             color=color,
         )
+
+        p = x / n
         log.debug(f"{p:.2%}: {info}")
         return info
 
     @staticmethod
     def get_latlng_color_info_list(
-        pil_image: Image.Image,
         reference_list: list[dict],
-        min_saturation: float,
-        n_clusters: int,
         color_background: tuple[int, int, int],
         box_size_lat: int,
         map_ent_type: EntType,
-        color_to_label: dict[tuple, str] = None,
+        color_to_label: dict[tuple, str],
+        color_matrix: np.ndarray,
     ) -> list[dict]:
-        color_matrix = MapDecoderGeoMixin.get_color_matrix(
-            pil_image=pil_image,
-            n_clusters=n_clusters,
-            min_saturation=min_saturation,
-            color_background=color_background,
-        )
 
         params = Poly2GeoMapper.fit(
             xys=[ref["xy"] for ref in reference_list],
@@ -123,13 +117,11 @@ class MapDecoderGeoMixin:
             box_size_lat=box_size_lat,
         )
         info_list = []
+        n = color_matrix.shape[1]
         for x in range(0, color_matrix.shape[1], step):
             if x < x_min or x > x_max:
                 continue
-            p = x / color_matrix.shape[1]
-            log.debug(f"{p:.2%}")
             for y in range(0, color_matrix.shape[0], step):
-
                 if y < y_min or y > y_max:
                     continue
 
@@ -137,6 +129,7 @@ class MapDecoderGeoMixin:
                     x=x,
                     y=y,
                     c=color_matrix[y, x],
+                    n=n,
                     color_background=color_background,
                     params=params,
                     color_to_label=color_to_label,
