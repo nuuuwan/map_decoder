@@ -5,7 +5,7 @@ from gig import Ent, EntType
 from PIL import Image, ImageDraw, ImageFont
 from utils import Log
 
-log = Log("MapDecoderImageMixin")
+log = Log("MapDecoderDrawMixin")
 
 
 class MapDecoderDrawMixin:
@@ -106,7 +106,7 @@ class MapDecoderDrawMixin:
         ]
         fig, ax = plt.subplots(figsize=(10, 10))
 
-        MapDecoderImageMixin.draw_map(
+        MapDecoderDrawMixin.draw_map(
             ax=ax,
             map_ent_type=map_ent_type,
             color_map_boundaries=color_map_boundaries,
@@ -120,7 +120,7 @@ class MapDecoderDrawMixin:
             marker="s",
         )
 
-        MapDecoderImageMixin.draw_legend(
+        MapDecoderDrawMixin.draw_legend(
             ax=ax,
             color_to_label=color_to_label,
         )
