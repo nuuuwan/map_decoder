@@ -127,9 +127,16 @@ class MapDecoderDrawMixin:
 
         plt.title(title)
 
+        # Remove grid and axis labels
+        ax.grid(False)
+        ax.set_xlabel("")
+        ax.set_ylabel("")
+        ax.set_xticks([])
+        ax.set_yticks([])
+
         temp_image_path = tempfile.NamedTemporaryFile(
             suffix=".png", delete=False
         ).name
-        plt.savefig(temp_image_path, dpi=300)
+        plt.savefig(temp_image_path, dpi=300, bbox_inches="tight")
         plt.close(fig)
         return Image.open(temp_image_path)
