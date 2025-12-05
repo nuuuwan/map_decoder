@@ -238,6 +238,7 @@ class MapDecoder:
         color_map_boundaries: tuple[int, int, int],
         box_size_lat: int,
         map_ent_type: EntType,
+        title: str,
     ) -> Image.Image:
         plt.close()
         lats = [info["latlng"][0] for info in info_list]
@@ -269,6 +270,7 @@ class MapDecoder:
             s=10 / box_size_lat,
             marker="s",
         )
+        plt.title(title)
 
         temp_image_path = tempfile.NamedTemporaryFile(
             suffix=".png", delete=False
@@ -288,6 +290,7 @@ class MapDecoder:
         color_background: tuple[int, int, int],
         box_size_lat: int,
         map_ent_type: EntType,
+        title: str,
     ) -> Image.Image:
         info_list = MapDecoder.get_latlng_color_info_list(
             pil_image=self.pil_image,
@@ -304,6 +307,7 @@ class MapDecoder:
             color_map_boundaries=color_map_boundaries,
             box_size_lat=box_size_lat,
             map_ent_type=map_ent_type,
+            title=title,
         )
         image_inspection = MapDecoder.generate_inspection_image(
             pil_image=self.pil_image,

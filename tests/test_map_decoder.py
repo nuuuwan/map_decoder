@@ -60,6 +60,7 @@ class TestCase(unittest.TestCase):
                 color_background=(255, 255, 255),
                 box_size_lat=0.1,
                 map_ent_type=EntType.DSD,
+                title="Elephant Corridors in Sri Lanka",
             )
         )
 
