@@ -74,11 +74,14 @@ class MapDecoder:
         image_rgb = pil_image.convert("RGB")
         color_array = np.array(image_rgb, dtype=np.float32)
         color_array = MapDecoder.replace_low_saturation_colors(
-            color_array,
-            min_saturation,
-            color_background,
+            color_array=color_array,
+            min_saturation=min_saturation,
+            color_background=color_background,
         )
-        color_array = MapDecoder.cluster_colors(color_array, n_clusters)
+        color_array = MapDecoder.cluster_colors(
+            color_array=color_array,
+            n_clusters=n_clusters,
+        )
         color_matrix = color_array / 255.0
         return color_matrix
 
@@ -150,11 +153,16 @@ class MapDecoder:
         color_background: tuple[int, int, int],
     ) -> list[dict]:
         color_matrix = MapDecoder.get_color_matrix(
-            pil_image, n_clusters, min_saturation, color_background
+            pil_image=pil_image,
+            n_clusters=n_clusters,
+            min_saturation=min_saturation,
+            color_background=color_background,
         )
         info_list = []
         (m_lat, c_lat), (m_lng, c_lng) = (
-            MapDecoder.get_latlng_transform_coefficients(reference_list)
+            MapDecoder.get_latlng_transform_coefficients(
+                reference_list=reference_list
+            )
         )
         for x in range(color_matrix.shape[1]):
             for y in range(color_matrix.shape[0]):
@@ -254,21 +262,26 @@ class MapDecoder:
         color_background: tuple[int, int, int],
     ) -> Image.Image:
         info_list = MapDecoder.get_latlng_color_info_list(
-            self.pil_image,
-            reference_list,
-            valid_color_list,
-            min_saturation,
-            n_clusters,
-            color_background,
+            pil_image=self.pil_image,
+            reference_list=reference_list,
+            valid_color_list=valid_color_list,
+            min_saturation=min_saturation,
+            n_clusters=n_clusters,
+            color_background=color_background,
         )
         image_info_list = MapDecoder.generate_info_list_image(
-            info_list, color_map_boundaries
+            info_list=info_list,
+            color_map_boundaries=color_map_boundaries,
         )
         image_inspection = MapDecoder.generate_inspection_image(
-            self.pil_image, reference_list, color_reference_point
+            pil_image=self.pil_image,
+            reference_list=reference_list,
+            color_reference_point=color_reference_point,
         )
 
-        most_common_colors = MapDecoder.get_most_common_colors(info_list)
+        most_common_colors = MapDecoder.get_most_common_colors(
+            info_list=info_list
+        )
         return (
             info_list,
             image_inspection,
