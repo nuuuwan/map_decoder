@@ -11,8 +11,10 @@ TEST_MAP_DECODER = MapDecoder.open(
 class TestCase(unittest.TestCase):
     def test_color_matrix(self):
         md = TEST_MAP_DECODER
-        cm = md.color_matrix
+        cm = md.get_color_matrix(md.pil_image)
         self.assertEqual(cm.shape, (654, 455, 3))
+        first_item = tuple((cm[0, 0] * 255).astype(int))
+        self.assertEqual(first_item, (65, 65, 65))
 
     def test_decode(self):
         md = TEST_MAP_DECODER

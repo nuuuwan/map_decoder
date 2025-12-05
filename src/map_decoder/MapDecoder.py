@@ -1,5 +1,4 @@
 import tempfile
-from functools import cached_property
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -19,9 +18,9 @@ class MapDecoder:
     def __init__(self, pil_image):
         self.pil_image = pil_image
 
-    @cached_property
-    def color_matrix(self) -> np.ndarray:
-        image_rgb = self.pil_image.convert("RGB")
+    @staticmethod
+    def get_color_matrix(pil_image) -> np.ndarray:
+        image_rgb = pil_image.convert("RGB")
         color_matrix = np.array(image_rgb, dtype=np.float32) / 255.0
         return color_matrix
 
@@ -84,7 +83,7 @@ class MapDecoder:
     def __get_latlng_color_info_list__(
         self, reference_list: list[dict], valid_color_list: list[tuple]
     ) -> list[dict]:
-        color_matrix = self.color_matrix
+        color_matrix = self.get_color_matrix(self.pil_image)
         info_list = []
         (m_lat, c_lat), (m_lng, c_lng) = (
             self.__get_latlng_transform_coefficients__(reference_list)
