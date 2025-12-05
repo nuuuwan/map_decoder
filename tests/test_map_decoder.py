@@ -11,10 +11,15 @@ TEST_MAP_DECODER = MapDecoder.open(
 class TestCase(unittest.TestCase):
     def test_color_matrix(self):
         md = TEST_MAP_DECODER
-        cm = md.get_color_matrix(md.pil_image, n_clusters=16)
+        cm = md.get_color_matrix(
+            md.pil_image,
+            n_clusters=3,
+            min_saturation=0.1,
+            color_background=(255, 255, 255),
+        )
         self.assertEqual(cm.shape, (654, 455, 3))
         first_item = tuple((cm[0, 0] * 255).astype(int))
-        self.assertEqual(first_item, (82, 85, 84))
+        self.assertEqual(first_item, (254, 254, 254))
 
     def test_decode(self):
         md = TEST_MAP_DECODER
@@ -42,7 +47,15 @@ class TestCase(unittest.TestCase):
         ]
         valid_color_list = None
         info_list, image_inspection, image_info_list, most_common_colors = (
-            md.decode(reference_list, valid_color_list)
+            md.decode(
+                reference_list=reference_list,
+                valid_color_list=valid_color_list,
+                min_saturation=0.1,
+                n_clusters=3,
+                color_reference_point=(255, 0, 0),
+                color_map_boundaries=(0, 0, 0),
+                color_background=(255, 255, 255),
+            )
         )
 
         image_inspection.save(
@@ -52,26 +65,22 @@ class TestCase(unittest.TestCase):
             os.path.join("tests", "output", "test_decode_info_list.png")
         )
 
-        self.assertEqual(len(info_list), 29153)
+        self.assertEqual(len(info_list), 29346)
         first_info = info_list[0]
         print(first_info)
         self.assertEqual(
             first_info,
             {
-                "latlng": (6.042402, 79.274861),
-                "xy": (16, 589),
-                "color": (186, 232, 235),
+                "latlng": (6.111115, 79.163467),
+                "xy": (0, 579),
+                "color": (81, 174, 200),
             },
         )
         print(most_common_colors)
         self.assertEqual(
             most_common_colors,
             {
-                (10, 171, 80): 0.3755,
-                (47, 171, 220): 0.2148,
-                (73, 164, 192): 0.1436,
-                (57, 160, 105): 0.0982,
-                (186, 232, 235): 0.0852,
-                (132, 197, 202): 0.0827,
+                (81, 174, 200): 0.5255,
+                (20, 167, 85): 0.4745,
             },
         )

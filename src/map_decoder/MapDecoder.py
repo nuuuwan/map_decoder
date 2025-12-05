@@ -25,7 +25,6 @@ class MapDecoder:
         color_array: np.ndarray,
         n_clusters: int,
     ) -> np.ndarray:
-
         original_shape = color_array.shape
         pixels = color_array.reshape(-1, 3)
 
@@ -39,12 +38,46 @@ class MapDecoder:
         return clustered_array.astype(np.float32)
 
     @staticmethod
+    def replace_low_saturation_colors(
+        color_array: np.ndarray,
+        min_saturation: float,
+        color_background: tuple[int, int, int],
+    ) -> np.ndarray:
+        result_array = color_array.copy()
+
+        normalized = color_array / 255.0
+        r, g, b = (
+            normalized[:, :, 0],
+            normalized[:, :, 1],
+            normalized[:, :, 2],
+        )
+
+        max_val = np.maximum(np.maximum(r, g), b)
+        min_val = np.minimum(np.minimum(r, g), b)
+        diff = max_val - min_val
+
+        saturation = np.where(max_val != 0, diff / max_val, 0)
+
+        low_sat_mask = saturation < min_saturation
+
+        result_array[low_sat_mask] = color_background
+
+        return result_array
+
+    @staticmethod
     def get_color_matrix(
         pil_image: Image.Image,
         n_clusters: int,
+        min_saturation: float,
+        color_background: tuple[int, int, int],
     ) -> np.ndarray:
         image_rgb = pil_image.convert("RGB")
         color_array = np.array(image_rgb, dtype=np.float32)
+        color_array = MapDecoder.replace_low_saturation_colors(
+            color_array,
+            min_saturation,
+            color_background,
+        )
         color_array = MapDecoder.cluster_colors(color_array, n_clusters)
         color_matrix = color_array / 255.0
         return color_matrix
@@ -114,8 +147,11 @@ class MapDecoder:
         valid_color_list: list[tuple],
         min_saturation: float,
         n_clusters: int,
+        color_background: tuple[int, int, int],
     ) -> list[dict]:
-        color_matrix = MapDecoder.get_color_matrix(pil_image, n_clusters)
+        color_matrix = MapDecoder.get_color_matrix(
+            pil_image, n_clusters, min_saturation, color_background
+        )
         info_list = []
         (m_lat, c_lat), (m_lng, c_lng) = (
             MapDecoder.get_latlng_transform_coefficients(reference_list)
@@ -211,10 +247,11 @@ class MapDecoder:
         self,
         reference_list: list[dict],
         valid_color_list: list[tuple],
-        min_saturation: float = 0.1,
-        n_clusters: int = 16,
-        color_reference_point: tuple[int, int, int] = (255, 0, 0),
-        color_map_boundaries: tuple[int, int, int] = (0, 0, 0),
+        min_saturation: float,
+        n_clusters: int,
+        color_reference_point: tuple[int, int, int],
+        color_map_boundaries: tuple[int, int, int],
+        color_background: tuple[int, int, int],
     ) -> Image.Image:
         info_list = MapDecoder.get_latlng_color_info_list(
             self.pil_image,
@@ -222,6 +259,7 @@ class MapDecoder:
             valid_color_list,
             min_saturation,
             n_clusters,
+            color_background,
         )
         image_info_list = MapDecoder.generate_info_list_image(
             info_list, color_map_boundaries
